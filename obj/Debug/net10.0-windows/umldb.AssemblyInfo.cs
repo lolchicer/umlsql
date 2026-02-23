@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("umldb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30b22784c346c7b295fdb86f083f002629aeb0b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("umldb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("umldb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
