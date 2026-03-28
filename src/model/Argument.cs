@@ -1,7 +1,7 @@
 namespace Lolchicer.Umlsql.Model;
 
-abstract interface Argument
+interface Argument
 {
-    public abstract Setproperty Setproperty { get; }
-    public abstract Interface Type { get; }
+    public Setproperty Setproperty { get; }
+    public Interface Type { get; }
 }
