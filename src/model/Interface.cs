@@ -1,6 +1,6 @@
 namespace Lolchicer.Umlsql.Model;
 
-interface Interface
+interface IInterface
 {
     
 }

@@ -1,6 +1,6 @@
 namespace Lolchicer.Umlsql.Model;
 
-interface Setproperty
+interface ISetproperty
 {
-    public Interface Interface { get; }
+    public IInterface Interface { get; }
 }
