@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing.Printing;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,5 +20,13 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private void button_Click(object sender, RoutedEventArgs e)
+    {
+        var interfaceWindow = new View.InterfaceWindow();
+
+        interfaceWindow.Owner = this;
+        interfaceWindow.Show();
     }
 }
