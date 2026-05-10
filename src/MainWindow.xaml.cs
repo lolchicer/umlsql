@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Lolchicer.Umlsql.View;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -16,16 +17,15 @@ public partial class MainWindow : Window
 
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
-
+        
     }
 
     private void button_Click(object sender, RoutedEventArgs e)
     {
-        var interfaceWindow = new View.InterfaceWindow(
-            (ConnectionContext)this.FindResource("ConnectionContextMain")
-            );
-
-        interfaceWindow.Owner = this;
+        var interfaceWindow = new InterfaceWindow((ConnectionContext)this.FindResource("ConnectionContextMain"))
+        {
+            Owner = this
+        };
         interfaceWindow.Show();
     }
 }

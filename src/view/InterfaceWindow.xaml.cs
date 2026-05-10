@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,26 +12,28 @@ namespace Lolchicer.Umlsql.View;
 public partial class InterfaceWindow : Window
 {
     private ConnectionContext _connectionContext;
+    private ApplicationContext _applicationContext;
 
-    private void InterfaceWindow_Loaded(object sender, RoutedEventArgs e)
+    public ConnectionContext ConnectionContext
     {
-        // Make a new data source object
-        var applicationContext = new ApplicationContext()
-        {
-            ConnectionString = _connectionContext.ConnectionString
-        };
+        get => _connectionContext;
+        set => _connectionContext = value;
+    }
 
-        // New binding object using the path of 'Name' for whatever source object is used
-        var ApplicationContextMain = new Binding("ConnectionString");
-
-        // Configure the binding
-        ApplicationContextMain.Mode = BindingMode.OneWay;
-        ApplicationContextMain.Source = applicationContext;
+    public string ConnectionString
+    {
+        get => ConnectionContext.ConnectionString;
     }
 
     public InterfaceWindow(ConnectionContext connectionContext)
     {
         _connectionContext = connectionContext;
+        _applicationContext = new ApplicationContext()
+            { ConnectionString = _connectionContext.ConnectionString };
+
+        Resources.Add("ApplicationContext", _applicationContext);
+        Resources.Add("Interface", _applicationContext.Interface);
+
         InitializeComponent();
     }
 }
