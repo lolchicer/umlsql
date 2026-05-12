@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
-namespace Lolchicer.Umlsql;
+namespace Lolchicer.Umlsql.ViewModel;
 
 public class ConnectionContext : INotifyPropertyChanged
 {

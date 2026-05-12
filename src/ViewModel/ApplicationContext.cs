@@ -1,9 +1,8 @@
-﻿using Lolchicer.Umlsql.View;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lolchicer.Umlsql;
+namespace Lolchicer.Umlsql.ViewModel;
 
 public class ApplicationContext : DbContext, INotifyPropertyChanged
 {

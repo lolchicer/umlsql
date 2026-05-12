@@ -1,4 +1,5 @@
 ﻿using Lolchicer.Umlsql.View;
+using Lolchicer.Umlsql.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;

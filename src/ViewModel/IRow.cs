@@ -1,4 +1,4 @@
-namespace Lolchicer.Umlsql.View;
+namespace Lolchicer.Umlsql.ViewModel;
 
 interface IRow
 {

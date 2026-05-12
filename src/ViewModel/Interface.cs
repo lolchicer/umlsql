@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lolchicer.Umlsql.View;
+namespace Lolchicer.Umlsql.ViewModel;
 
 [Table("objects")]
 public class Interface : IInterface, INotifyPropertyChanged
