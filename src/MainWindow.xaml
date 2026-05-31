@@ -26,7 +26,7 @@
 
             <TextBlock Text="{Binding ConnectionString}" Grid.Row="0" Grid.Column="1" />
             
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="button_Click"/>
+            <Button x:Name="button" Content="Product" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="button_Click"/>
         </Grid>
 
         <Border BorderBrush="Gray" BorderThickness="2" />
