@@ -41,5 +41,14 @@ namespace Lolchicer.Umlsql.View
 
             InitializeComponent();
         }
+
+        public void InterfaceShow(object sender, RoutedEventArgs e)
+        {
+            var interfaceWindow = new InterfaceWindow(_applicationContext.Interfaces.ToList()[(int)((Button)sender).Content])
+            {
+                Owner = this
+            };
+            interfaceWindow.Show();
+        }
     }
 }

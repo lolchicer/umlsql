@@ -12,28 +12,9 @@ namespace Lolchicer.Umlsql.View;
 
 public partial class InterfaceWindow : Window
 {
-    private ConnectionContext _connectionContext;
-    private ApplicationContext _applicationContext;
-
-    public ConnectionContext ConnectionContext
+    public InterfaceWindow(Interface @interface)
     {
-        get => _connectionContext;
-        set => _connectionContext = value;
-    }
-
-    public string ConnectionString
-    {
-        get => ConnectionContext.ConnectionString;
-    }
-
-    public InterfaceWindow(ConnectionContext connectionContext)
-    {
-        _connectionContext = connectionContext;
-        _applicationContext = new ApplicationContext()
-            { ConnectionString = _connectionContext.ConnectionString };
-
-        Resources.Add("ApplicationContext", _applicationContext);
-        Resources.Add("Interface", _applicationContext.Interface);
+        Resources.Add("Interface", @interface);
 
         InitializeComponent();
     }
