@@ -23,7 +23,7 @@ public partial class MainWindow : Window
 
     private void button_Click(object sender, RoutedEventArgs e)
     {
-        var interfaceWindow = new InterfacesWindow((ConnectionContext)this.FindResource("ConnectionContextMain"))
+        var interfaceWindow = new ProductWindow(((ConnectionContext)this.FindResource("ConnectionContextMain")).ConnectionString)
         {
             Owner = this
         };

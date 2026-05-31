@@ -16,35 +16,26 @@ namespace Lolchicer.Umlsql.View
 {
     public partial class InterfacesWindow : Window
     {
-        private ConnectionContext _connectionContext;
-        private ApplicationContext _applicationContext;
+        private IList<Interface> _interfaces;
 
-        public ConnectionContext ConnectionContext
+        public IList<Interface> Interfaces
         {
-            get => _connectionContext;
-            set => _connectionContext = value;
+            get => _interfaces;
+            set => _interfaces = value;
         }
 
-        public string ConnectionString
+        public InterfacesWindow(IList<Interface> interfaces)
         {
-            get => ConnectionContext.ConnectionString;
-        }
+            _interfaces = interfaces;
 
-        public InterfacesWindow(ConnectionContext connectionContext)
-        {
-            _connectionContext = connectionContext;
-            _applicationContext = new ApplicationContext()
-            { ConnectionString = _connectionContext.ConnectionString };
-
-            Resources.Add("ApplicationContext", _applicationContext);
-            Resources.Add("Interfaces", _applicationContext.Interfaces);
+            Resources.Add("Interfaces", _interfaces);
 
             InitializeComponent();
         }
 
         public void InterfaceShow(object sender, RoutedEventArgs e)
         {
-            var interfaceWindow = new InterfaceWindow(_applicationContext.Interfaces.ToList()[(int)((Button)sender).Content])
+            var interfaceWindow = new InterfaceWindow(_interfaces[(int)((Button)sender).Content])
             {
                 Owner = this
             };
