@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:umlsql="clr-namespace:Lolchicer.Umlsql"
         xmlns:local="clr-namespace:Lolchicer.Umlsql.View"
+        xmlns:viewmodel="clr-namespace:Lolchicer.Umlsql.ViewModel"
         mc:Ignorable="d"
         Title="InterfacesWindow" Height="450" Width="800">
     <Window.Resources>
