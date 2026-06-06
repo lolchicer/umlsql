@@ -1,7 +1,8 @@
 ﻿<Application x:Class="Lolchicer.Umlsql.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Lolchicer.Umlsql">
+             xmlns:local="clr-namespace:Lolchicer.Umlsql"
+             StartupUri="View/ConnectionPage.xaml">
     <Application.Resources>
          
     </Application.Resources>
