@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Lolchicer.Umlsql
+namespace Lolchicer.Umlsql.View
 {
     /// <summary>
-    /// Логика взаимодействия для InterfacePage.xaml
+    /// Логика взаимодействия для ProductPage.xaml
     /// </summary>
-    public partial class InterfacePage : Page
+    public partial class ProductPage : Page
     {
-        public InterfacePage()
+        public ProductPage()
         {
             InitializeComponent();
         }
