@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lolchicer.Umlsql.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,23 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+        private ApplicationContext _applicationContext;
+
+        public ProductPage(string connectionString)
         {
+            _applicationContext = new ApplicationContext()
+            { ConnectionString = connectionString };
+
+            Resources.Add("ApplicationContext", _applicationContext);
+
             InitializeComponent();
+        }
+
+        private void NavigateInterfacesPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new InterfacesPage(_applicationContext.InterfacesSaved)
+                );
         }
     }
 }

@@ -7,8 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductPage">
-
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Label FontSize="32">Product</Label>
+        <Border BorderBrush="Gray" BorderThickness="2" />
+        <Button Content="Interfaces" Click="NavigateInterfacesPage" />
+    </StackPanel>
 </Page>

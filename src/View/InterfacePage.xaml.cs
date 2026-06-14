@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lolchicer.Umlsql.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,8 +19,10 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class InterfacePage : Page
     {
-        public InterfacePage()
+        public InterfacePage(Interface @interface)
         {
+            Resources.Add("Interface", @interface);
+
             InitializeComponent();
         }
     }

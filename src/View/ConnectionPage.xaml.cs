@@ -16,11 +16,13 @@ using System.IO;
 
 namespace Lolchicer.Umlsql.View
 {
-    /// <summary>
-    /// Логика взаимодействия для ConnectionPage.xaml
-    /// </summary>
     public partial class ConnectionPage : Page
     {
+        public ConnectionContext ConnectionContext
+        {
+            get => (ConnectionContext)FindResource("ConnectionContext");
+        }
+
         public ConnectionPage()
         {
             var connectionContext = new ConnectionContext()
@@ -41,6 +43,13 @@ namespace Lolchicer.Umlsql.View
                 @"ConnectionString.txt",
                 ((ConnectionContext)this.FindResource("ConnectionContext")).ConnectionString
             );
+        }
+
+        private void NavigateProductPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new ProductPage(ConnectionContext.ConnectionString)
+                );
         }
     }
 }

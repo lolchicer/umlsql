@@ -5,6 +5,9 @@
     <Compile Update="View\ConnectionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\InterfacesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\InterfacesWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

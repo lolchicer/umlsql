@@ -23,7 +23,7 @@
 
             <TextBlock Text="{Binding ConnectionString}" Grid.Row="0" Grid.Column="1" />
 
-            <Button x:Name="button" Content="Product" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54"/>
+            <Button x:Name="button" Content="Product" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="NavigateProductPage"/>
             <Button Content="Save" HorizontalAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" Height="36" Width="54" Click="SaveConnectionString"/>
         </Grid>
 
