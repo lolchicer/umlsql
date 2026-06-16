@@ -23,11 +23,6 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Interface> Interfaces { get; set; } = null!;
 
-    public Interface Interface => (
-        from value in Interfaces
-        select value
-        ).First();
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(_connectionString);
