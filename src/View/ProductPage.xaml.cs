@@ -24,11 +24,8 @@ namespace Lolchicer.Umlsql.View
             get => (ApplicationContext)FindResource("ApplicationContext");
         }
 
-        public ProductPage(string connectionString)
+        public ProductPage(ApplicationContext applicationContext)
         {
-            var applicationContext = new ApplicationContext()
-            { ConnectionString = connectionString };
-
             Resources.Add("ApplicationContext", applicationContext);
 
             InitializeComponent();

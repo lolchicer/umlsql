@@ -48,7 +48,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateProductPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new ProductPage(ConnectionContext.ConnectionString)
+                new ProductPage(ConnectionContext.ApplicationContext)
                 );
         }
     }
