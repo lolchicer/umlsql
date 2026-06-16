@@ -8,13 +8,7 @@
     <Compile Update="View\InterfacesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\InterfacesWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\ProductPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\ProductWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

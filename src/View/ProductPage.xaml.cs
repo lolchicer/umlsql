@@ -19,14 +19,17 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ProductPage : Page
     {
-        private ApplicationContext _applicationContext;
+        public ApplicationContext ApplicationContext
+        {
+            get => (ApplicationContext)FindResource("ApplicationContext");
+        }
 
         public ProductPage(string connectionString)
         {
-            _applicationContext = new ApplicationContext()
+            var applicationContext = new ApplicationContext()
             { ConnectionString = connectionString };
 
-            Resources.Add("ApplicationContext", _applicationContext);
+            Resources.Add("ApplicationContext", applicationContext);
 
             InitializeComponent();
         }
@@ -34,7 +37,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateInterfacesPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new InterfacesPage(_applicationContext.InterfacesSaved)
+                new InterfacesPage(ApplicationContext.Interfaces)
                 );
         }
     }

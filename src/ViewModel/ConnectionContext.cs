@@ -18,4 +18,12 @@ public class ConnectionContext : INotifyPropertyChanged
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ConnectionString)));
         }
     }
+
+    public ApplicationContext ApplicationContext
+    {
+        get => new()
+        {
+            ConnectionString = ConnectionString
+        };
+    }
 }

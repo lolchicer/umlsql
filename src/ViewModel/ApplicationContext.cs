@@ -6,7 +6,8 @@ namespace Lolchicer.Umlsql.ViewModel;
 
 public class ApplicationContext : DbContext, INotifyPropertyChanged
 {
-    private string _connectionString = "";
+    private string _connectionString = string.Empty;
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public string ConnectionString
@@ -22,21 +23,10 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Interface> Interfaces { get; set; } = null!;
 
-    [NotMapped]
-    public IList<Interface> InterfacesSaved
-    {
-        get => Interfaces.ToList();
-    }
-
     public Interface Interface => (
         from value in Interfaces
         select value
         ).First();
-
-    public ApplicationContext()
-    {
-
-    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
