@@ -23,6 +23,12 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Interface> Interfaces { get; set; } = null!;
 
+    public DbSet<Getproperty> Getproperties { get; set; } = null!;
+
+    public DbSet<Setproperty> Setproperties { get; set; } = null!;
+
+    public DbSet<Argument> Arguments { get; set; } = null!;
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(_connectionString);
