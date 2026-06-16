@@ -7,7 +7,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("arguments")]
-    public class Arguments
+    public class Argument
     {
         private int _id;
 
