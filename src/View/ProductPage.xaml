@@ -11,5 +11,8 @@
         <Label FontSize="32">Product</Label>
         <Border BorderBrush="Gray" BorderThickness="2" />
         <Button Content="Interfaces" Click="NavigateInterfacesPage" />
+        <Button Content="Setproperties" Click="NavigateSetpropertiesPage" />
+        <Button Content="Getproperties" Click="NavigateGetpropertiesPage" />
+        <Button Content="Arguments" Click="NavigateArgumentsPage" />
     </StackPanel>
 </Page>

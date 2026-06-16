@@ -2,13 +2,31 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="View\ArgumentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ArgumentsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ConnectionPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\GetpropertiesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\GetpropertyPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\InterfacesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ProductPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SetpropertiesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SetpropertyPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

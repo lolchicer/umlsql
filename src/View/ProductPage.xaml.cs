@@ -37,5 +37,26 @@ namespace Lolchicer.Umlsql.View
                 new InterfacesPage(ApplicationContext.Interfaces)
                 );
         }
+
+        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new GetpropertiesPage(ApplicationContext.Getproperties)
+                );
+        }
+
+        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new SetpropertiesPage(ApplicationContext.Setproperties)
+                );
+        }
+
+        private void NavigateArgumentsPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new ArgumentsPage(ApplicationContext.Arguments)
+                );
+        }
     }
 }
