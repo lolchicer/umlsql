@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace Lolchicer.Umlsql.ViewModel
@@ -11,11 +12,9 @@ namespace Lolchicer.Umlsql.ViewModel
     {
         private int _id;
 
-        private int _getpropertyId;
+        private Getproperty _getproperty;
 
-        private int _getpropertyInterface;
-
-        private int _type;
+        private Interface _type;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -30,30 +29,19 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("method_id")]
-        public int GetpropertyId
+        [ForeignKey("arguments_method_tkey")]
+        public Getproperty GetpropertyInterface
         {
-            get => _getpropertyId;
+            get => _getproperty;
             set
             {
-                _getpropertyId = value;
+                _getproperty = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
 
-        [Column("method_object")]
-        public int GetpropertyInterface
-        {
-            get => _getpropertyInterface;
-            set
-            {
-                _getpropertyInterface = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [Column("type")]
-        public int Type
+        [ForeignKey("fields_type_fkey")]
+        public Interface Type
         {
             get => _type;
             set

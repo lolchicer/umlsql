@@ -11,9 +11,9 @@ namespace Lolchicer.Umlsql.ViewModel
     {
         private int _id;
 
-        private int _interface;
+        private Interface _interface;
 
-        private int _type;
+        private Interface _type;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -28,8 +28,8 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("object")]
-        public int Interface
+        [ForeignKey("fields_object_fkey")]
+        public Interface Interface
         {
             get => _interface;
             set
@@ -39,8 +39,8 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("type")]
-        public int Type
+        [ForeignKey("fields_type_fkey")]
+        public Interface Type
         {
             get => _type;
             set

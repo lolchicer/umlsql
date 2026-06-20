@@ -11,7 +11,7 @@ namespace Lolchicer.Umlsql.ViewModel
     {
         private int _id;
 
-        private int _interface;
+        private Interface _interface;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,9 +25,9 @@ namespace Lolchicer.Umlsql.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
-
-        [Column("object")]
-        public int Interface
+        
+        [ForeignKey("fields_type_fkey")]
+        public Interface Interface
         {
             get => _interface;
             set
