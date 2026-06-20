@@ -26,8 +26,7 @@
             <TextBlock Text="Type:" Grid.Row="2" Margin="0,0,10,0" />
 
             <TextBlock Text="{Binding Id}" Grid.Row="0" Grid.Column="1" />
-            <TextBlock Text="{Binding GetpropertyId}" Grid.Row="1" Grid.Column="1" />
-            <TextBlock Text="{Binding GetpropertyInterface}" Grid.Row="1" Grid.Column="1" />
+            <TextBlock Text="{Binding Interface}" Grid.Row="1" Grid.Column="1" />
             <TextBlock Text="{Binding Type}" Grid.Row="2" Grid.Column="1" />
         </Grid>
 

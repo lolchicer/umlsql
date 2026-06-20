@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lolchicer.Umlsql.ViewModel
@@ -11,6 +12,7 @@ namespace Lolchicer.Umlsql.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        [Key]
         [Column("id")]
         public required int Id
         {
@@ -21,5 +23,14 @@ namespace Lolchicer.Umlsql.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
+
+        [InverseProperty("Interface")]
+        public ICollection<Setproperty> Setproperties { get; } = new List<Setproperty>();
+        [InverseProperty("Interface")]
+        public ICollection<Getproperty> Getproperties { get; } = new List<Getproperty>();
+        [InverseProperty("Type")]
+        public ICollection<Getproperty> GetpropertyTypes { get; } = new List<Getproperty>();
+        [InverseProperty("Type")]
+        public ICollection<Argument> ArgumentTypes { get; } = new List<Argument>();
     }
 }
