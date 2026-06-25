@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,13 +9,10 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("fields")]
+    [PrimaryKey("Id", "Interface")]
     public class Getproperty
     {
         private int _id;
-
-        private int _interfaceId;
-
-        private int _typeId;
 
         private Interface _interface;
 
@@ -34,28 +32,7 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("object")]
-        public int InterfaceId
-        {
-            get => _interfaceId;
-            set
-            {
-                _interfaceId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [Column("type")]
-        public int TypeId
-        {
-            get => _typeId;
-            set
-            {
-                _typeId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
+        [Key]
         [ForeignKey("object")]
         public Interface Interface
         {

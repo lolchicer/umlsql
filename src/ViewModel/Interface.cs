@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("objects")]
+    [PrimaryKey("Id")]
     public class Interface : IInterface, INotifyPropertyChanged
     {
         private int _id;

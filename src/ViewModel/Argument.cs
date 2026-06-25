@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,15 +10,10 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("arguments")]
-    public class Argument
+    [PrimaryKey("Id", "Getproperty")]
+    public class Argument : IInterface, INotifyPropertyChanged
     {
         private int _id;
-
-        private int _getpropertyId;
-
-        private int _getpropertyInterfaceId;
-
-        private int _typeId;
 
         private Getproperty _getproperty;
 
@@ -37,39 +33,7 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("method_id")]
-        public int GetpropertyId
-        {
-            get => _getpropertyId;
-            set
-            {
-                _getpropertyId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [Column("method_object")]
-        public int GetpropertyInterfaceId
-        {
-            get => _getpropertyInterfaceId;
-            set
-            {
-                _getpropertyInterfaceId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [Column("type")]
-        public int TypeId
-        {
-            get => _typeId;
-            set
-            {
-                _typeId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
+        [Key]
         [ForeignKey("method_object, method_id")]
         public Getproperty Getproperty
         {
@@ -81,7 +45,7 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [ForeignKey("Interface")]
+        [ForeignKey("type")]
         public Interface Type
         {
             get => _type;
