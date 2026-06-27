@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Lolchicer.Umlsql
+namespace Lolchicer.Umlsql.src
 {
     /// <summary>
     /// Логика взаимодействия для InterfacePage.xaml

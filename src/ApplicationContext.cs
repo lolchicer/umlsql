@@ -1,13 +1,13 @@
 ﻿using Lolchicer.Umlsql.View;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lolchicer.Umlsql;
 
 public class ApplicationContext : DbContext, INotifyPropertyChanged
 {
     private string _connectionString = "";
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public string ConnectionString
@@ -23,14 +23,9 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Interface> Interfaces { get; set; } = null!;
 
-    [NotMapped]
-    public IList<Interface> InterfacesSaved
-    {
-        get => Interfaces.ToList();
-    }
-
     public Interface Interface => (
         from value in Interfaces
+        where value.Id == 1
         select value
         ).First();
 
