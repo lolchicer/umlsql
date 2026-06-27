@@ -5,7 +5,7 @@ namespace Lolchicer.Umlsql;
 
 public class ConnectionContext : INotifyPropertyChanged
 {
-    private string _connectionString = string.Empty;
+    private string _connectionString;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
