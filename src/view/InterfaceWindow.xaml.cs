@@ -1,5 +1,4 @@
-﻿using Lolchicer.Umlsql.ViewModel;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
