@@ -15,7 +15,7 @@ public class ConnectionContext : INotifyPropertyChanged
         set
         {
             _connectionString = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ConnectionString)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
     }
 }
