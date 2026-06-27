@@ -17,11 +17,7 @@
         <Label FontSize="32">Interfaces</Label>
         <Border BorderBrush="Gray" BorderThickness="2" />
         <ListBox ItemsSource="{Binding Source={StaticResource listingDataView}}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding Path=Id}" Click="InterfaceShow"></Button>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+            
         </ListBox>
 
         <Border BorderBrush="Gray" BorderThickness="2" />
