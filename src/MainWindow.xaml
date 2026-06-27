@@ -9,26 +9,28 @@
     <Window.Resources>
         <local:ConnectionContext x:Key="ConnectionContextMain" ConnectionString="Host=localhost;Port=5432;Database=usersdb;Username=username;Password=password" />
     </Window.Resources>
-    <StackPanel DataContext="{StaticResource ConnectionContextMain}">
-        <Label FontSize="32">Connection Context</Label>
-        <Border BorderBrush="Gray" BorderThickness="2" />
-        <Grid Grid.Row="1" Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="button_Click"/>
+        <StackPanel DataContext="{StaticResource ConnectionContextMain}">
+            <Label FontSize="32">Connection Context</Label>
+            <Border BorderBrush="Gray" BorderThickness="2" />
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Text="ConnectionString:" Grid.Row="0" Margin="0,0,10,0" />
+                <TextBlock Text="ConnectionString:" Grid.Row="0" Margin="0,0,10,0" />
 
-            <TextBlock Text="{Binding ConnectionString}" Grid.Row="0" Grid.Column="1" />
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="button_Click"/>
-        </Grid>
-        <StackPanel Margin="5,10" Orientation="Horizontal">
-            <TextBlock x:Name="ConnectionBlock" Text="Change ConnectionString:" Margin="0,0,10,0" />
-            <TextBox Text="{Binding ConnectionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=C0}" Width="600" />
+                <TextBlock Text="{Binding ConnectionString}" Grid.Row="0" Grid.Column="1" />
+            </Grid>
+            <StackPanel Margin="5,10" Orientation="Horizontal">
+                <TextBlock x:Name="ConnectionBlock" Text="Change ConnectionString:" Margin="0,0,10,0" />
+                <TextBox Text="{Binding ConnectionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=C0}" Width="600" />
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Window>
