@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:Lolchicer.Umlsql"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <local:ConnectionContext x:Key="ConnectionContextMain" ConnectionString="Host=localhost;Port=5432;Database=usersdb;Username=username;Password=password" />
-    </Window.Resources>
     <Grid>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Height="36" Margin="0,194,0,0" VerticalAlignment="Top" Width="54" Click="button_Click"/>
         <StackPanel DataContext="{StaticResource ConnectionContextMain}">
@@ -29,7 +26,7 @@
             </Grid>
             <StackPanel Margin="5,10" Orientation="Horizontal">
                 <TextBlock x:Name="ConnectionBlock" Text="Change ConnectionString:" Margin="0,0,10,0" />
-                <TextBox Text="{Binding ConnectionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=C0}" Width="600" />
+                <TextBox x:Name="ConnectionBox" Width="600" />
             </StackPanel>
         </StackPanel>
     </Grid>
