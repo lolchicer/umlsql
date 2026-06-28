@@ -2,5 +2,5 @@
 
 interface ISetproperty
 {
-    public IInterface Interface { get; }
+    public IMethod Method { get; }
 }
