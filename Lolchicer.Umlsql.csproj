@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="src\obj\Новая папка\" />
+    <Folder Include="src\View\" />
   </ItemGroup>
 
 </Project>
