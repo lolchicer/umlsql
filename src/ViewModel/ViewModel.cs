@@ -1,4 +1,4 @@
-namespace Lolchicer.Umlsql.View;
+namespace Lolchicer.Umlsql.ViewModel;
 
 interface IInterface : IRow, Model.IInterface { }
 interface IGetproperty : IRow, Model.IGetproperty { }
