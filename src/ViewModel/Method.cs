@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lolchicer.Umlsql.Model;
+using Lolchicer.Umlsql.View;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,11 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lolchicer.Umlsql.ViewModel;
 
-[Table("interfaces")]
-[PrimaryKey("Id")]
-public class Interface : IInterface, INotifyPropertyChanged
+[Table("methods")]
+[PrimaryKey("Id", "Interface")]
+public class Method : IMethod, INotifyPropertyChanged
 {
     private int _id;
+
+    private Interface _interface;
 
     private string _name = "";
 
@@ -28,6 +32,18 @@ public class Interface : IInterface, INotifyPropertyChanged
         }
     }
 
+    [Key]
+    [ForeignKey("interface")]
+    public Interface Interface
+    {
+        get => _interface;
+        set
+        {
+            _interface = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
+        }
+    }
+
     [NotMapped]
     public required string Name
     {
@@ -38,4 +54,6 @@ public class Interface : IInterface, INotifyPropertyChanged
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
     }
+
+    IInterface IMethod.Interface => Interface;
 }

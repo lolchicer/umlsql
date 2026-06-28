@@ -1,6 +1,8 @@
+﻿using Lolchicer.Umlsql.View;
+
 namespace Lolchicer.Umlsql.Model;
 
-interface ISetproperty
+interface IMethod
 {
     public IInterface Interface { get; }
 }

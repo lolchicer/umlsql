@@ -10,14 +10,16 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("arguments")]
-    [PrimaryKey("Id", "Getproperty")]
-    public class Argument : IInterface, INotifyPropertyChanged
+    [PrimaryKey("Id", "Method")]
+    public class Argument : IArgument, INotifyPropertyChanged
     {
         private int _id;
 
-        private Getproperty _getproperty;
+        private Method _method;
 
         private Interface _type;
+
+        private string _name = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -34,13 +36,13 @@ namespace Lolchicer.Umlsql.ViewModel
         }
 
         [Key]
-        [ForeignKey("method_object, method_id")]
-        public Getproperty Getproperty
+        [ForeignKey("method, interface")]
+        public Method Method
         {
-            get => _getproperty;
+            get => _method;
             set
             {
-                _getproperty = value;
+                _method = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
@@ -55,5 +57,19 @@ namespace Lolchicer.Umlsql.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
+
+        [NotMapped]
+        public required string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+            }
+        }
+
+        IMethod IArgument.Method => Method;
+        IInterface IArgument.Type => Type;
     }
 }

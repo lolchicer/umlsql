@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lolchicer.Umlsql.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,15 +9,17 @@ using System.Text;
 
 namespace Lolchicer.Umlsql.ViewModel
 {
-    [Table("fields")]
-    [PrimaryKey("Id", "Interface")]
-    public class Getproperty
+    [Table("getproperties")]
+    [PrimaryKey("Id", "Method")]
+    public class Getproperty : IGetproperty, INotifyPropertyChanged
     {
         private int _id;
 
-        private Interface _interface;
+        private Method _method;
 
         private Interface _type;
+
+        private string _name = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -33,17 +36,18 @@ namespace Lolchicer.Umlsql.ViewModel
         }
 
         [Key]
-        [ForeignKey("object")]
-        public Interface Interface
+        [ForeignKey("method, interface")]
+        public Method Method
         {
-            get => _interface;
+            get => _method;
             set
             {
-                _interface = value;
+                _method = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
 
+        [Key]
         [ForeignKey("type")]
         public Interface Type
         {
@@ -55,7 +59,18 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [InverseProperty("Getproperty")]
-        public ICollection<Argument> Arguments { get; } = new List<Argument>();
+        [NotMapped]
+        public required string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+            }
+        }
+
+        IMethod IGetproperty.Method => Method;
+        IInterface IGetproperty.Type => Type;
     }
 }
