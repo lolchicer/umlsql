@@ -11,7 +11,7 @@ namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("getproperties")]
     [PrimaryKey("Id", "Method")]
-    internal class Getproperty : IGetproperty, INotifyPropertyChanged
+    public class Getproperty : IGetproperty, INotifyPropertyChanged
     {
         private int _id;
 
