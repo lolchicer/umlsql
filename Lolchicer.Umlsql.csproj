@@ -17,8 +17,4 @@
     <ApplicationDefinition Include="src\App.xaml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\obj\Новая папка\" />
-  </ItemGroup>
-
 </Project>
