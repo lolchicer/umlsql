@@ -9,7 +9,6 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("setproperties")]
-    [PrimaryKey("Id", "Method")]
     public class Setproperty : ISetproperty, INotifyPropertyChanged
     {
         private int _id;
@@ -20,7 +19,6 @@ namespace Lolchicer.Umlsql.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        [Key]
         [Column("id")]
         public int Id
         {
@@ -32,8 +30,20 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Key]
-        [ForeignKey("method, interface")]
+        [Column("method")]
+        public required int MethodId
+        {
+            get;
+            set;
+        }
+
+        [Column("interface")]
+        public required int InterfaceId
+        {
+            get;
+            set;
+        }
+
         public Method Method
         {
             get => _method;

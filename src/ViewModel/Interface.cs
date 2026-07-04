@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel;
 
 [Table("interfaces")]
-[PrimaryKey("Id")]
 public class Interface : IInterface, INotifyPropertyChanged
 {
     private int _id;
@@ -16,7 +15,6 @@ public class Interface : IInterface, INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    [Key]
     [Column("id")]
     public required int Id
     {
@@ -38,4 +36,8 @@ public class Interface : IInterface, INotifyPropertyChanged
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
     }
+
+    public IEnumerable<Method> Methods { get; } = [];
+    public IEnumerable<Argument> Arguments { get; } = [];
+    public IEnumerable<Getproperty> Getproperties { get; } = [];
 }

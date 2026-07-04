@@ -36,4 +36,52 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
     {
         optionsBuilder.UseNpgsql(_connectionString);
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Interface>()
+            .HasKey(@interface => @interface.Id);
+
+        modelBuilder.Entity<Method>()
+            .HasKey(method => new { method.Id, method.Interface });
+
+        modelBuilder.Entity<Argument>()
+            .HasKey(argument => new { argument.Id, argument.Method });
+
+        modelBuilder.Entity<Getproperty>()
+            .HasKey(getproperty => new { getproperty.Id, getproperty.Method });
+
+        modelBuilder.Entity<Setproperty>()
+            .HasKey(setproperty => new { setproperty.Id, setproperty.Method });
+
+        modelBuilder.Entity<Interface>()
+            .HasMany(@interface => @interface.Methods)
+            .WithOne(method => method.Interface)
+            .HasForeignKey(method => method.InterfaceId);
+
+        modelBuilder.Entity<Interface>()
+            .HasMany(@interface => @interface.Arguments)
+            .WithOne(argument => argument.Type)
+            .HasForeignKey(argument => argument.TypeId);
+
+        modelBuilder.Entity<Interface>()
+            .HasMany(@interface => @interface.Getproperties)
+            .WithOne(getproperty => getproperty.Type)
+            .HasForeignKey(getproperty => getproperty.TypeId);
+
+        modelBuilder.Entity<Method>()
+            .HasMany(method => method.Arguments)
+            .WithOne(argument => argument.Method)
+            .HasForeignKey(argument => new { argument.MethodId, argument.InterfaceId });
+
+        modelBuilder.Entity<Method>()
+            .HasMany(method => method.Getproperties)
+            .WithOne(getproperty => getproperty.Method)
+            .HasForeignKey(getproperty => new { getproperty.MethodId, getproperty.InterfaceId });
+
+        modelBuilder.Entity<Method>()
+            .HasMany(method => method.Setproperties)
+            .WithOne(setproperty => setproperty.Method)
+            .HasForeignKey(setproperty => new { setproperty.MethodId, setproperty.InterfaceId });
+    }
 }
