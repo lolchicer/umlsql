@@ -1,5 +1,4 @@
 ﻿using Lolchicer.Umlsql.Model;
-using Lolchicer.Umlsql.View;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;
