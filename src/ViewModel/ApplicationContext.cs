@@ -1,4 +1,5 @@
-﻿using Lolchicer.Umlsql.ViewModel;
+﻿using Lolchicer.Umlsql.Model;
+using Lolchicer.Umlsql.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -43,45 +44,51 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
             .HasKey(@interface => @interface.Id);
 
         modelBuilder.Entity<Method>()
-            .HasKey(method => new { method.Id, method.Interface });
+            .HasKey(method => new { method.Id, method.InterfaceId });
 
         modelBuilder.Entity<Argument>()
-            .HasKey(argument => new { argument.Id, argument.Method });
+            .HasKey(argument => new { argument.Id, argument.MethodId, argument.InterfaceId });
 
         modelBuilder.Entity<Getproperty>()
-            .HasKey(getproperty => new { getproperty.Id, getproperty.Method });
+            .HasKey(getproperty => new { getproperty.Id, getproperty.MethodId });
 
         modelBuilder.Entity<Setproperty>()
-            .HasKey(setproperty => new { setproperty.Id, setproperty.Method });
-
-        modelBuilder.Entity<Interface>()
-            .HasMany(@interface => @interface.Methods)
-            .WithOne(method => method.Interface)
-            .HasForeignKey(method => method.InterfaceId);
-
-        modelBuilder.Entity<Interface>()
-            .HasMany(@interface => @interface.Arguments)
-            .WithOne(argument => argument.Type)
-            .HasForeignKey(argument => argument.TypeId);
-
-        modelBuilder.Entity<Interface>()
-            .HasMany(@interface => @interface.Getproperties)
-            .WithOne(getproperty => getproperty.Type)
-            .HasForeignKey(getproperty => getproperty.TypeId);
+            .HasKey(setproperty => new { setproperty.Id, setproperty.MethodId });
 
         modelBuilder.Entity<Method>()
-            .HasMany(method => method.Arguments)
-            .WithOne(argument => argument.Method)
-            .HasForeignKey(argument => new { argument.MethodId, argument.InterfaceId });
+            .HasOne(method => method.Interface)
+            .WithMany(@interface => @interface.Methods)
+            .HasForeignKey(method => method.InterfaceId)
+            .HasPrincipalKey(@interface => @interface.Id);
 
-        modelBuilder.Entity<Method>()
-            .HasMany(method => method.Getproperties)
-            .WithOne(getproperty => getproperty.Method)
-            .HasForeignKey(getproperty => new { getproperty.MethodId, getproperty.InterfaceId });
+        modelBuilder.Entity<Argument>()
+            .HasOne(argument => argument.Method)
+            .WithMany(method => method.Arguments)
+            .HasForeignKey(argument => new { argument.MethodId, argument.InterfaceId })
+            .HasPrincipalKey(method => new { method.Id, method.InterfaceId });
 
-        modelBuilder.Entity<Method>()
-            .HasMany(method => method.Setproperties)
-            .WithOne(setproperty => setproperty.Method)
-            .HasForeignKey(setproperty => new { setproperty.MethodId, setproperty.InterfaceId });
+        modelBuilder.Entity<Argument>()
+            .HasOne(argument => argument.Type)
+            .WithMany(type => type.Arguments)
+            .HasForeignKey(argument => argument.TypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Getproperty>()
+            .HasOne(getproperty => getproperty.Method)
+            .WithMany(method => method.Getproperties)
+            .HasForeignKey(getproperty => new { getproperty.MethodId, getproperty.InterfaceId })
+            .HasPrincipalKey(method => new { method.Id, method.InterfaceId });
+
+        modelBuilder.Entity<Getproperty>()
+            .HasOne(getproperty => getproperty.Type)
+            .WithMany(type => type.Getproperties)
+            .HasForeignKey(getproperty => getproperty.TypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Setproperty>()
+            .HasOne(setproperty => setproperty.Method)
+            .WithMany(method => method.Setproperties)
+            .HasForeignKey(setproperty => new { setproperty.MethodId, setproperty.InterfaceId })
+            .HasPrincipalKey(method => new { method.Id, method.InterfaceId });
     }
 }
