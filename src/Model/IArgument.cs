@@ -1,6 +1,4 @@
-﻿using Lolchicer.Umlsql.View;
-
-namespace Lolchicer.Umlsql.Model;
+﻿namespace Lolchicer.Umlsql.Model;
 
 interface IArgument
 {
