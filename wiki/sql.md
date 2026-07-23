@@ -1,21 +1,30 @@
-objects
+functions
 * id – integer – not null – indentity – always – 1-0-0
 
-fields
+aruments
 * id
-* object
+* function
+* type
+
+interfaces
+* id – integer – not null – indentity – always – 1-0-0
 * type
 
 methods
-* id
-* object
-
-effects
-* id
-* method
+* id – integer – not null – indentity – always – 1-0-0
 * type
 
-arguments
+getproperties
 * id
 * method
-* type
+
+setproperties
+* id
+* method
+
+automatons
+* id – integer – not null – indentity – always – 1-0-0
+
+operations
+* id
+* automaton
