@@ -2,5 +2,5 @@
 
 interface IInterface
 {
-
+    public IFunction Type { get; }
 }

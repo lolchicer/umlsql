@@ -2,6 +2,6 @@
 
 interface IArgument
 {
-    public IMethod Method { get; }
-    public IInterface Type { get; }
+    public IFunction Function { get; }
+    public IFunction Type { get; }
 }
