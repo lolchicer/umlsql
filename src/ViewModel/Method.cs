@@ -12,7 +12,7 @@ public class Method : IMethod, INotifyPropertyChanged
 {
     private int _id;
 
-    private Interface _interface;
+    private Argument _interface;
 
     private string _name = "";
 
@@ -36,7 +36,7 @@ public class Method : IMethod, INotifyPropertyChanged
         set;
     }
 
-    public Interface Interface
+    public Argument Interface
     {
         get => _interface;
         set
@@ -61,5 +61,5 @@ public class Method : IMethod, INotifyPropertyChanged
     public IEnumerable<Getproperty> Getproperties { get; } = [];
     public IEnumerable<Setproperty> Setproperties { get; } = [];
 
-    IInterface IMethod.Interface => Interface;
+    IArgument IMethod.Interface => Interface;
 }

@@ -37,13 +37,6 @@ namespace Lolchicer.Umlsql.ViewModel
             set;
         }
 
-        [Column("interface")]
-        public required int InterfaceId
-        {
-            get;
-            set;
-        }
-
         public Method Method
         {
             get => _method;

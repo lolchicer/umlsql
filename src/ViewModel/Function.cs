@@ -1,5 +1,4 @@
-﻿using Lolchicer.Umlsql.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,41 +8,22 @@ using System.Text;
 
 namespace Lolchicer.Umlsql.ViewModel
 {
-    [Table("getproperties")]
-    public class Getproperty : IGetproperty, INotifyPropertyChanged
+    [Table("functions")]
+    public class Function : IFunction, INotifyPropertyChanged
     {
         private int _id;
-
-        private Method _method;
 
         private string _name = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [Column("id")]
-        public int Id
+        public int id
         {
             get => _id;
             set
             {
                 _id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [Column("method")]
-        public required int MethodId
-        {
-            get;
-            set;
-        }
-
-        public Method Method
-        {
-            get => _method;
-            set
-            {
-                _method = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
@@ -58,7 +38,5 @@ namespace Lolchicer.Umlsql.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
             }
         }
-
-        IMethod IGetproperty.Method => Method;
     }
 }

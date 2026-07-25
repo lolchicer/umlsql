@@ -11,6 +11,8 @@ public class Interface : IInterface, INotifyPropertyChanged
 {
     private int _id;
 
+    private Function _type;
+
     private string _name = "";
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -22,6 +24,23 @@ public class Interface : IInterface, INotifyPropertyChanged
         set
         {
             _id = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
+        }
+    }
+
+    [Column("type")]
+    public required int TypeId
+    {
+        get;
+        set;
+    }
+
+    public required Function Type
+    {
+        get => _type;
+        set
+        {
+            _type = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
     }
@@ -40,4 +59,6 @@ public class Interface : IInterface, INotifyPropertyChanged
     public IEnumerable<Method> Methods { get; } = [];
     public IEnumerable<Argument> Arguments { get; } = [];
     public IEnumerable<Getproperty> Getproperties { get; } = [];
+
+    IFunction IInterface.Type => Type;
 }

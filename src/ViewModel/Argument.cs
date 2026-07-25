@@ -14,9 +14,9 @@ namespace Lolchicer.Umlsql.ViewModel
     {
         private int _id;
 
-        private Method _method;
+        private Function _function;
 
-        private Interface _type;
+        private Function _type;
 
         private string _name = "";
 
@@ -33,15 +33,8 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        [Column("method")]
-        public required int MethodId
-        {
-            get;
-            set;
-        }
-
-        [Column("interface")]
-        public required int InterfaceId
+        [Column("function")]
+        public required int FunctionId
         {
             get;
             set;
@@ -54,17 +47,17 @@ namespace Lolchicer.Umlsql.ViewModel
             set;
         }
 
-        public Method Method
+        public Function Function
         {
-            get => _method;
+            get => _function;
             set
             {
-                _method = value;
+                _function = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
 
-        public Interface Type
+        public Function Type
         {
             get => _type;
             set
@@ -85,7 +78,7 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        IMethod IArgument.Method => Method;
-        IInterface IArgument.Type => Type;
+        IFunction IArgument.Function => Function;
+        IFunction IArgument.Type => Type;
     }
 }
