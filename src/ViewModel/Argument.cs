@@ -23,7 +23,7 @@ namespace Lolchicer.Umlsql.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [Column("id")]
-        public int Id
+        public required int Id
         {
             get => _id;
             set
@@ -47,7 +47,7 @@ namespace Lolchicer.Umlsql.ViewModel
             set;
         }
 
-        public Function Function
+        public required Function Function
         {
             get => _function;
             set
@@ -57,7 +57,7 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
-        public Function Type
+        public required Function Type
         {
             get => _type;
             set

@@ -35,7 +35,7 @@ public class Method : IMethod, INotifyPropertyChanged
         set;
     }
 
-    public Argument Interface
+    public required Argument Interface
     {
         get => _interface;
         set

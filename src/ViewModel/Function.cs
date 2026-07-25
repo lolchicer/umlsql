@@ -18,7 +18,7 @@ namespace Lolchicer.Umlsql.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [Column("id")]
-        public int id
+        public required int id
         {
             get => _id;
             set

@@ -20,7 +20,7 @@ namespace Lolchicer.Umlsql.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [Column("id")]
-        public int Id
+        public required int Id
         {
             get => _id;
             set
@@ -37,7 +37,7 @@ namespace Lolchicer.Umlsql.ViewModel
             set;
         }
 
-        public Method Method
+        public required Method Method
         {
             get => _method;
             set
