@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.Model;
 
-public interface IFunction
+interface IFunction
 {
 
 }
