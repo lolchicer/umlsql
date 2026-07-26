@@ -78,6 +78,8 @@ namespace Lolchicer.Umlsql.ViewModel
             }
         }
 
+        public IEnumerable<Method> Methods { get; } = [];
+
         IFunction IArgument.Function => Function;
         IFunction IArgument.Type => Type;
     }

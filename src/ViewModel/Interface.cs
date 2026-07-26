@@ -56,9 +56,7 @@ public class Interface : IInterface, INotifyPropertyChanged
         }
     }
 
-    public IEnumerable<Method> Methods { get; } = [];
-    public IEnumerable<Argument> Arguments { get; } = [];
-    public IEnumerable<Getproperty> Getproperties { get; } = [];
+    public IEnumerable<Function> Functions { get; } = [];
 
     IFunction IInterface.Function => Function;
 }

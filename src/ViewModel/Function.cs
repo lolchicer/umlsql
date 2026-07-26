@@ -38,5 +38,9 @@ namespace Lolchicer.Umlsql.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
             }
         }
+
+        public IEnumerable<Argument> Arguments { get; } = [];
+        public IEnumerable<Argument> ArgumentTypes { get; } = [];
+        public IEnumerable<Interface> Interface { get; } = [];
     }
 }
