@@ -28,8 +28,8 @@ public class Method : IMethod, INotifyPropertyChanged
         }
     }
 
-    [Column("interface")]
-    public required int InterfaceId
+    [Column("argument")]
+    public required int ArgumentId
     {
         get;
         set;

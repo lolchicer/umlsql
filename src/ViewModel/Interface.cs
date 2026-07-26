@@ -28,8 +28,8 @@ public class Interface : IInterface, INotifyPropertyChanged
         }
     }
 
-    [Column("type")]
-    public required int TypeId
+    [Column("function")]
+    public required int FunctionId
     {
         get;
         set;
