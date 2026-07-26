@@ -9,7 +9,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("setproperties")]
-    public class Setproperty : ISetproperty, INotifyPropertyChanged
+    public class Setproperty : ISetproperty, ISettableRow, INotifyPropertyChanged
     {
         private int _id;
 

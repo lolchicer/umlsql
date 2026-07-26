@@ -10,7 +10,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel
 {
     [Table("arguments")]
-    public class Argument : IArgument, INotifyPropertyChanged
+    public class Argument : IArgument, ISettableRow, INotifyPropertyChanged
     {
         private int _id;
 
