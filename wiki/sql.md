@@ -8,11 +8,11 @@ arguments
 
 interfaces
 * id – integer – not null – indentity – always – 1-0-0
-* type
+* function
 
 methods
 * id – integer – not null – indentity – always – 1-0-0
-* type
+* argument
 
 getproperties
 * id – integer – not null – indentity – always – 1-0-0
