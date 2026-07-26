@@ -35,6 +35,13 @@ public class Method : IMethod, INotifyPropertyChanged
         set;
     }
 
+    [Column("function")]
+    public required int FunctionId
+    {
+        get;
+        set;
+    }
+
     public required Argument Argument
     {
         get => _argument;

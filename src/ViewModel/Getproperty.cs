@@ -37,6 +37,20 @@ namespace Lolchicer.Umlsql.ViewModel
             set;
         }
 
+        [Column("argument")]
+        public required int ArgumentId
+        {
+            get;
+            set;
+        }
+
+        [Column("function")]
+        public required int FunctionId
+        {
+            get;
+            set;
+        }
+
         public required Method Method
         {
             get => _method;
