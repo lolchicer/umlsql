@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel;
 
 [Table("methods")]
-public class Method : IMethod, INotifyPropertyChanged
+public class Method : IMethod, ISettableRow, INotifyPropertyChanged
 {
     private int _id;
 

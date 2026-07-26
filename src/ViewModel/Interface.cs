@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel;
 
 [Table("interfaces")]
-public class Interface : IInterface, INotifyPropertyChanged
+public class Interface : IInterface, ISettableRow, INotifyPropertyChanged
 {
     private int _id;
 
