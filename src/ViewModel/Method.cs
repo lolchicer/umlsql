@@ -60,5 +60,5 @@ public class Method : IMethod, INotifyPropertyChanged
     public IEnumerable<Getproperty> Getproperties { get; } = [];
     public IEnumerable<Setproperty> Setproperties { get; } = [];
 
-    IArgument IMethod.Interface => Argument;
+    IArgument IMethod.Argument => Argument;
 }
