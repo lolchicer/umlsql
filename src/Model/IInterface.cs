@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.Model;
 
-interface IInterface
+public interface IInterface
 {
     public IFunction Function { get; }
 }
