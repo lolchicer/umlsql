@@ -1,7 +1,7 @@
 functions
 * id – integer – not null – indentity – always – 1-0-0
 
-aruments
+arguments
 * id – integer – not null – indentity – always – 1-0-0
 * function
 * type
