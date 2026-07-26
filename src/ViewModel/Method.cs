@@ -35,7 +35,7 @@ public class Method : IMethod, INotifyPropertyChanged
         set;
     }
 
-    public required Argument Interface
+    public required Argument Argument
     {
         get => _argument;
         set
@@ -60,5 +60,5 @@ public class Method : IMethod, INotifyPropertyChanged
     public IEnumerable<Getproperty> Getproperties { get; } = [];
     public IEnumerable<Setproperty> Setproperties { get; } = [];
 
-    IArgument IMethod.Interface => Interface;
+    IArgument IMethod.Interface => Argument;
 }

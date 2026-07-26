@@ -56,7 +56,7 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
             .HasKey(setproperty => new { setproperty.Id, setproperty.MethodId });
 
         modelBuilder.Entity<Method>()
-            .HasOne(method => method.Interface)
+            .HasOne(method => method.Argument)
             .WithMany(@interface => @interface.Methods)
             .HasForeignKey(method => method.InterfaceId)
             .HasPrincipalKey(@interface => @interface.Id);

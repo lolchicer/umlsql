@@ -35,7 +35,7 @@ public class Interface : IInterface, INotifyPropertyChanged
         set;
     }
 
-    public required Function Type
+    public required Function Function
     {
         get => _function;
         set
@@ -60,5 +60,5 @@ public class Interface : IInterface, INotifyPropertyChanged
     public IEnumerable<Argument> Arguments { get; } = [];
     public IEnumerable<Getproperty> Getproperties { get; } = [];
 
-    IFunction IInterface.Type => Type;
+    IFunction IInterface.Type => Function;
 }
