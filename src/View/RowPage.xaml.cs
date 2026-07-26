@@ -21,7 +21,7 @@ namespace Lolchicer.Umlsql.View
     {
         public RowPage(IRow row)
         {
-            Resources.Add("Argument", row);
+            Resources.Add("Row", row);
 
             InitializeComponent();
         }
