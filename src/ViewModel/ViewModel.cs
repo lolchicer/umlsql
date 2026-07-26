@@ -12,14 +12,14 @@ interface IArgument : IRow, Model.IArgument
 
 interface IInterface : IRow, Model.IInterface
 {
-    new public IFunction Type { get; }
-    Model.IFunction Model.IInterface.Type => Type;
+    new public IFunction Function { get; }
+    Model.IFunction Model.IInterface.Function => Function;
 }
 
 interface IMethod : IRow, Model.IMethod
 {
-    new public IArgument Interface { get; }
-    Model.IArgument Model.IMethod.Interface => Interface;
+    new public IArgument Argument { get; }
+    Model.IArgument Model.IMethod.Argument => Argument;
 }
 
 interface IGetproperty : IRow, Model.IGetproperty
