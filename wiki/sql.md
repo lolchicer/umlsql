@@ -2,7 +2,7 @@ functions
 * id – integer – not null – indentity – always – 1-0-0
 
 aruments
-* id
+* id – integer – not null – indentity – always – 1-0-0
 * function
 * type
 
@@ -15,16 +15,16 @@ methods
 * type
 
 getproperties
-* id
+* id – integer – not null – indentity – always – 1-0-0
 * method
 
 setproperties
-* id
+* id – integer – not null – indentity – always – 1-0-0
 * method
 
 automatons
 * id – integer – not null – indentity – always – 1-0-0
 
 operations
-* id
+* id – integer – not null – indentity – always – 1-0-0
 * automaton
