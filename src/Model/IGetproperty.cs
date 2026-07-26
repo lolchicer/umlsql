@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.Model;
 
-interface IGetproperty
+public interface IGetproperty
 {
     public IMethod Method { get; }
 }

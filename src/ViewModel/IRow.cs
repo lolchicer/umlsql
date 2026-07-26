@@ -1,6 +1,6 @@
 namespace Lolchicer.Umlsql.ViewModel;
 
-interface IRow
+public interface IRow
 {
     public string Name { get; }
 }

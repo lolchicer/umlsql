@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.Model;
 
-interface IMethod
+public interface IMethod
 {
     public IArgument Argument { get; }
 }
