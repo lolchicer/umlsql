@@ -41,6 +41,6 @@ namespace Lolchicer.Umlsql.ViewModel
 
         public IEnumerable<Argument> Arguments { get; } = [];
         public IEnumerable<Argument> ArgumentTypes { get; } = [];
-        public IEnumerable<Interface> Interface { get; } = [];
+        public IEnumerable<Interface> Interfaces { get; } = [];
     }
 }
