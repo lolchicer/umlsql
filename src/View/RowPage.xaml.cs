@@ -17,11 +17,17 @@ namespace Lolchicer.Umlsql.View
     /// <summary>
     /// Логика взаимодействия для RowPage.xaml
     /// </summary>
-    public partial class RowPage : Page
+    public partial class RowPage<T> : Page where T : ISettableRow
     {
-        public RowPage(IRow row)
+        private INameFabric<T> _nameFabric;
+
+        public RowPage(T t, INameFabric<T> nameFabric)
         {
-            Resources.Add("Row", row);
+            _nameFabric = nameFabric;
+
+            t.Name = _nameFabric.Name(t);
+
+            Resources.Add("Row", t);
 
             InitializeComponent();
         }

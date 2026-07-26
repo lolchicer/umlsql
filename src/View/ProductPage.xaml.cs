@@ -19,6 +19,8 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ProductPage : Page
     {
+        private ApplicationNameFabric nameFabric = new();
+
         public ApplicationContext ApplicationContext
         {
             get => (ApplicationContext)FindResource("ApplicationContext");
@@ -31,32 +33,33 @@ namespace Lolchicer.Umlsql.View
             InitializeComponent();
         }
 
-        private void NavigateInterfacesPage(object sender, RoutedEventArgs e)
+        private void NavigateRowsPage<T>(
+            IEnumerable<T> rows,
+            INameFabric<T> nameFabric,
+            object sender,
+            RoutedEventArgs e) where T : ISettableRow
         {
             NavigationService.Navigate(
-                new InterfacesPage(ApplicationContext.Interfaces)
+                new RowsPage<T>(rows, nameFabric)
                 );
         }
 
-        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(
-                new GetpropertiesPage(ApplicationContext.Getproperties)
-                );
-        }
+        private void NavigateFunctionsPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Function>(ApplicationContext.Functions, nameFabric, sender, e);
 
-        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(
-                new SetpropertiesPage(ApplicationContext.Setproperties)
-                );
-        }
+        private void NavigateArgumentsPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Argument>(ApplicationContext.Arguments, nameFabric, sender, e);
 
-        private void NavigateArgumentsPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(
-                new ArgumentsPage(ApplicationContext.Arguments)
-                );
-        }
+        private void NavigateInterfacesPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Interface>(ApplicationContext.Interfaces, nameFabric, sender, e);
+
+        private void NavigateMethodsPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Method>(ApplicationContext.Methods, nameFabric, sender, e);
+
+        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Getproperty>(ApplicationContext.Getproperties, nameFabric, sender, e);
+
+        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e) =>
+            NavigateRowsPage<Setproperty>(ApplicationContext.Setproperties, nameFabric, sender, e);
     }
 }

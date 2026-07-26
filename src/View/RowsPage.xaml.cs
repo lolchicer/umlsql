@@ -16,29 +16,31 @@ using System.Windows.Shapes;
 namespace Lolchicer.Umlsql.View
 {
     /// <summary>
-    /// Логика взаимодействия для ArgumentsPage.xaml
+    /// Логика взаимодействия для RowsPage.xaml
     /// </summary>
-    public partial class ArgumentsPage : Page
+    public partial class RowsPage<T> : Page where T : ISettableRow
     {
-        public IList<Argument> Arguments
+        private INameFabric<T> _nameFabric;
+
+        public IList<T> Rows
         {
-            get => (IList<Argument>)FindResource("Arguments");
+            get => (IList<T>)FindResource("Rows");
         }
 
-        public ArgumentsPage(IEnumerable<Argument> arguments)
+        public RowsPage(IEnumerable<T> ts, INameFabric<T> nameFabric)
         {
-            Resources.Add("Arguments", new List<Argument>());
+            Resources.Add("Rows", new List<T>());
 
-            foreach (var argument in arguments)
-                Arguments.Add(argument);
+            foreach (var row in ts)
+                Rows.Add(row);
 
             InitializeComponent();
         }
 
-        private void NavigateArgumentPage(object sender, RoutedEventArgs e)
+        private void NavigateRowPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new ArgumentPage(Arguments[(int)((Button)sender).Content])
+                new RowPage<T>(Rows[(int)((Button)sender).Content], _nameFabric)
                 );
         }
     }
