@@ -23,11 +23,13 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
         }
     }
 
+    public DbSet<Function> Functions { get; set; } = null!;
+
+    public DbSet<Argument> Arguments { get; set; } = null!;
+
     public DbSet<Interface> Interfaces { get; set; } = null!;
 
     public DbSet<Method> Methods { get; set; } = null!;
-
-    public DbSet<Argument> Arguments { get; set; } = null!;
 
     public DbSet<Getproperty> Getproperties { get; set; } = null!;
 
