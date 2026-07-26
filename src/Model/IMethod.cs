@@ -2,5 +2,5 @@
 
 interface IMethod
 {
-    public IArgument Interface { get; }
+    public IArgument Argument { get; }
 }
