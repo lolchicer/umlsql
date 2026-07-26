@@ -11,7 +11,7 @@ public class Method : IMethod, INotifyPropertyChanged
 {
     private int _id;
 
-    private Argument _interface;
+    private Argument _argument;
 
     private string _name = "";
 
@@ -37,10 +37,10 @@ public class Method : IMethod, INotifyPropertyChanged
 
     public required Argument Interface
     {
-        get => _interface;
+        get => _argument;
         set
         {
-            _interface = value;
+            _argument = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
     }

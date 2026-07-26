@@ -11,7 +11,7 @@ public class Interface : IInterface, INotifyPropertyChanged
 {
     private int _id;
 
-    private Function _type;
+    private Function _function;
 
     private string _name = "";
 
@@ -37,10 +37,10 @@ public class Interface : IInterface, INotifyPropertyChanged
 
     public required Function Type
     {
-        get => _type;
+        get => _function;
         set
         {
-            _type = value;
+            _function = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
     }
