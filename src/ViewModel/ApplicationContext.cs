@@ -68,7 +68,7 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
         modelBuilder.Entity<Argument>()
             .HasOne(argument => argument.Type)
-            .WithMany(type => type.Arguments)
+            .WithMany(type => type.ArgumentTypes)
             .HasForeignKey(argument => argument.TypeId)
             .HasPrincipalKey(type => type.Id);
 
