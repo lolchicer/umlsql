@@ -1,4 +1,4 @@
-document
+model
 * register
 * approval
 * cancel

@@ -3,7 +3,7 @@ models
 
 views
 * id – integer – not null – indentity – always – 1-0-0
-* document
+* model
 * type
 
 functions
