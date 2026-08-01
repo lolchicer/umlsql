@@ -1,0 +1,4 @@
+model
+* register
+* approve
+* cancel

@@ -1,35 +1,45 @@
 namespace Lolchicer.Umlsql.ViewModel;
 
-public interface IFunction : IRow, Model.IFunction { }
+public interface IModel : IRow, Umlsql.Model.IModel { }
 
-public interface IArgument : IRow, Model.IArgument
+public interface IView : IRow, Umlsql.Model.IView
+{
+    new public IModel Model { get; }
+    new public IModel Type { get; }
+    Umlsql.Model.IModel Umlsql.Model.IView.Model => Model;
+    Umlsql.Model.IModel Umlsql.Model.IView.Type => Type;
+}
+
+public interface IFunction : IRow, Umlsql.Model.IFunction { }
+
+public interface IArgument : IRow, Umlsql.Model.IArgument
 {
     new public IFunction Function { get; }
     new public IFunction Type { get; }
-    Model.IFunction Model.IArgument.Function => Function;
-    Model.IFunction Model.IArgument.Type => Type;
+    Umlsql.Model.IFunction Umlsql.Model.IArgument.Function => Function;
+    Umlsql.Model.IFunction Umlsql.Model.IArgument.Type => Type;
 }
 
-public interface IInterface : IRow, Model.IInterface
+public interface IInterface : IRow, Umlsql.Model.IInterface
 {
     new public IFunction Function { get; }
-    Model.IFunction Model.IInterface.Function => Function;
+    Umlsql.Model.IFunction Umlsql.Model.IInterface.Function => Function;
 }
 
-public interface IMethod : IRow, Model.IMethod
+public interface IMethod : IRow, Umlsql.Model.IMethod
 {
     new public IArgument Argument { get; }
-    Model.IArgument Model.IMethod.Argument => Argument;
+    Umlsql.Model.IArgument Umlsql.Model.IMethod.Argument => Argument;
 }
 
-public interface IGetproperty : IRow, Model.IGetproperty
+public interface IGetproperty : IRow, Umlsql.Model.IGetproperty
 {
     new public IMethod Method { get; }
-    Model.IMethod Model.IGetproperty.Method => Method;
+    Umlsql.Model.IMethod Umlsql.Model.IGetproperty.Method => Method;
 }
 
-public interface ISetproperty : IRow, Model.ISetproperty
+public interface ISetproperty : IRow, Umlsql.Model.ISetproperty
 {
     new public IMethod Method { get; }
-    Model.IMethod Model.ISetproperty.Method => Method;
+    Umlsql.Model.IMethod Umlsql.Model.ISetproperty.Method => Method;
 }

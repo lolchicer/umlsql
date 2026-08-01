@@ -42,6 +42,24 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Model>()
+            .HasKey(model => model.Id);
+
+        modelBuilder.Entity<View>()
+            .HasKey(view => new { view.Id, view.ModelId });
+
+        modelBuilder.Entity<View>()
+            .HasOne(view => view.Model)
+            .WithMany(model => model.Views)
+            .HasForeignKey(view => view.ModelId)
+            .HasPrincipalKey(model => model.Id);
+
+        modelBuilder.Entity<View>()
+            .HasOne(view => view.Type)
+            .WithMany(type => type.ViewTypes)
+            .HasForeignKey(view => view.TypeId)
+            .HasPrincipalKey(type => type.Id);
+
         modelBuilder.Entity<Function>()
             .HasKey(function => function.Id);
 
@@ -68,7 +86,7 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
         modelBuilder.Entity<Argument>()
             .HasOne(argument => argument.Type)
-            .WithMany(type => type.Arguments)
+            .WithMany(type => type.ArgumentTypes)
             .HasForeignKey(argument => argument.TypeId)
             .HasPrincipalKey(type => type.Id);
 

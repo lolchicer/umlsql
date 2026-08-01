@@ -1,3 +1,11 @@
+models
+* id – integer – not null – indentity – always – 1-0-0
+
+views
+* id – integer – not null – indentity – always – 1-0-0
+* model
+* type
+
 functions
 * id – integer – not null – indentity – always – 1-0-0
 
