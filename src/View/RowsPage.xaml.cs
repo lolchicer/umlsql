@@ -18,18 +18,16 @@ namespace Lolchicer.Umlsql.View
     /// <summary>
     /// Логика взаимодействия для RowsPage.xaml
     /// </summary>
-    public partial class RowsPage<T> : Page where T : ISettableRow
+    public partial class RowsPage : Page
     {
-        private INameFabric<T> _nameFabric;
-
-        public IList<T> Rows
+        public IList<ISettableRow> Rows
         {
-            get => (IList<T>)FindResource("Rows");
+            get => (IList<ISettableRow>)FindResource("Rows");
         }
 
-        public RowsPage(IEnumerable<T> ts, INameFabric<T> nameFabric)
+        public RowsPage(IEnumerable<ISettableRow> ts)
         {
-            Resources.Add("Rows", new List<T>());
+            Resources.Add("Rows", new List<ISettableRow>());
 
             foreach (var row in ts)
                 Rows.Add(row);
@@ -40,7 +38,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateRowPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new RowPage<T>(Rows[(int)((Button)sender).Content], _nameFabric)
+                new RowPage(Rows[(int)((Button)sender).Content])
                 );
         }
     }

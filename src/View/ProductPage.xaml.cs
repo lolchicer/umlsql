@@ -34,32 +34,31 @@ namespace Lolchicer.Umlsql.View
         }
 
         private void NavigateRowsPage<T>(
-            IEnumerable<T> rows,
-            INameFabric<T> nameFabric,
+            IEnumerable<ISettableRow> rows,
             object sender,
             RoutedEventArgs e) where T : ISettableRow
         {
             NavigationService.Navigate(
-                new RowsPage<T>(rows, nameFabric)
+                new RowsPage(rows)
                 );
         }
 
         private void NavigateFunctionsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Function>(ApplicationContext.Functions, nameFabric, sender, e);
+            NavigateRowsPage<Function>(ApplicationContext.Functions, sender, e);
 
         private void NavigateArgumentsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Argument>(ApplicationContext.Arguments, nameFabric, sender, e);
+            NavigateRowsPage<Argument>(ApplicationContext.Arguments, sender, e);
 
         private void NavigateInterfacesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Interface>(ApplicationContext.Interfaces, nameFabric, sender, e);
+            NavigateRowsPage<Interface>(ApplicationContext.Interfaces, sender, e);
 
         private void NavigateMethodsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Method>(ApplicationContext.Methods, nameFabric, sender, e);
+            NavigateRowsPage<Method>(ApplicationContext.Methods, sender, e);
 
         private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Getproperty>(ApplicationContext.Getproperties, nameFabric, sender, e);
+            NavigateRowsPage<Getproperty>(ApplicationContext.Getproperties, sender, e);
 
         private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Setproperty>(ApplicationContext.Setproperties, nameFabric, sender, e);
+            NavigateRowsPage<Setproperty>(ApplicationContext.Setproperties, sender, e);
     }
 }

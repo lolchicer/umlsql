@@ -20,7 +20,7 @@
         <ListBox ItemsSource="{Binding Source={StaticResource listingDataView}}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path=Name}" Click="NavigateArgumentPage"></Button>
+                    <Button Content="{Binding Path=Name}" Click="NavigateRowPage"></Button>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
