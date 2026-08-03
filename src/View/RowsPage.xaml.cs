@@ -25,7 +25,7 @@ namespace Lolchicer.Umlsql.View
             get => (IList<ISettableRow>)FindResource("Rows");
         }
 
-        public RowsPage(IEnumerable<ISettableRow> ts)
+        public RowsPage(INamedTuplesFabric<ISettableRow> ts)
         {
             Resources.Add("Rows", new List<ISettableRow>());
 
