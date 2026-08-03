@@ -56,7 +56,5 @@ public class Interface : IInterface, ISettableRow, INotifyPropertyChanged
         }
     }
 
-    public IEnumerable<Function> Functions { get; } = [];
-
     IFunction IInterface.Function => Function;
 }

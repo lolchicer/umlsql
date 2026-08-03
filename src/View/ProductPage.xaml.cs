@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace Lolchicer.Umlsql.View
 {
@@ -19,7 +20,7 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ProductPage : Page
     {
-        private ApplicationNameFabric nameFabric = new();
+        private ApplicationNamesSetter _namesSetter = new(new ApplicationNameFabric());
 
         public ApplicationContext ApplicationContext
         {
@@ -33,32 +34,40 @@ namespace Lolchicer.Umlsql.View
             InitializeComponent();
         }
 
-        private void NavigateRowsPage<T>(
-            IEnumerable<ISettableRow> rows,
-            object sender,
-            RoutedEventArgs e) where T : ISettableRow
+        private void NavigateFunctionsPage(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(
-                new RowsPage(rows)
-                );
+            ((INamesSetter<Function>)_namesSetter).SetNames(ApplicationContext.Functions);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Functions));
         }
 
-        private void NavigateFunctionsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Function>(ApplicationContext.Functions, sender, e);
+        private void NavigateArgumentsPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<Argument>)_namesSetter).SetNames(ApplicationContext.Arguments);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Arguments));
+        }
 
-        private void NavigateArgumentsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Argument>(ApplicationContext.Arguments, sender, e);
+        private void NavigateInterfacesPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<Interface>)_namesSetter).SetNames(ApplicationContext.Interfaces);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Interfaces));
+        }
 
-        private void NavigateInterfacesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Interface>(ApplicationContext.Interfaces, sender, e);
+        private void NavigateMethodsPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<Method>)_namesSetter).SetNames(ApplicationContext.Methods);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Methods));
+        }
 
-        private void NavigateMethodsPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Method>(ApplicationContext.Methods, sender, e);
+        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<Getproperty>)_namesSetter).SetNames(ApplicationContext.Getproperties);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Getproperties));
+        }
 
-        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Getproperty>(ApplicationContext.Getproperties, sender, e);
-
-        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e) =>
-            NavigateRowsPage<Setproperty>(ApplicationContext.Setproperties, sender, e);
+        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<Setproperty>)_namesSetter).SetNames(ApplicationContext.Setproperties);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Setproperties));
+        }
     }
 }
