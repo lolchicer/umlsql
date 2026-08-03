@@ -1,27 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lolchicer.Umlsql.ViewModel
+﻿namespace Lolchicer.Umlsql.ViewModel
 {
-    public interface INamedTuplesFabric<T> : IAsyncEnumerable<Tuple<T, string>> where T : ISettableRow
+    public interface INamesSetter<T> where T : ISettableRow
     {
-
+        public void SetNames(IEnumerable<T> ts);
     }
 
-    public class NamedTuplesFabric<T> : INamedTuplesFabric<T> where T : ISettableRow
+    public static class INamesSetting
     {
-        private IAsyncEnumerable<T> _rows;
-        private INameFabric<T> _nameFabric;
+        public static void SetNames<T>(this IEnumerable<T> ts, INamesSetter<T> namesSetter)
+            where T : ISettableRow
+            => namesSetter.SetNames(ts);
+    }
 
-        public IAsyncEnumerator<Tuple<T, string>> GetAsyncEnumerator(CancellationToken cancellationToken) => (
-            from row in _rows
-            select new Tuple<T, string>(row, _nameFabric.Name(row))
-            ).GetAsyncEnumerator(cancellationToken);
+    public class ApplicationNamesSetter :
+        INamesSetter<Function>,
+        INamesSetter<Argument>,
+        INamesSetter<Interface>,
+        INamesSetter<Method>,
+        INamesSetter<Getproperty>,
+        INamesSetter<Setproperty>
+    {
+        private ApplicationNameFabric _nameFabric;
 
-        public NamedTuplesFabric(IAsyncEnumerable<T> rows, INameFabric<T> nameFabric)
+        private void SetNames<T>(IEnumerable<T> rows, INameFabric<T> nameFabric)
+            where T : ISettableRow
         {
-            _rows = rows;
+            foreach (var row in rows)
+                row.Name = row.Name(nameFabric);
+        }
+
+        void INamesSetter<Function>.SetNames(IEnumerable<Function> functions) =>
+            SetNames(functions, _nameFabric);
+        void INamesSetter<Argument>.SetNames(IEnumerable<Argument> arguments) =>
+            SetNames(arguments, _nameFabric);
+        void INamesSetter<Interface>.SetNames(IEnumerable<Interface> interfaces) =>
+            SetNames(interfaces, _nameFabric);
+        void INamesSetter<Method>.SetNames(IEnumerable<Method> methods) =>
+            SetNames(methods, _nameFabric);
+        void INamesSetter<Getproperty>.SetNames(IEnumerable<Getproperty> getproperties) =>
+            SetNames(getproperties, _nameFabric);
+        void INamesSetter<Setproperty>.SetNames(IEnumerable<Setproperty> setproperties) =>
+            SetNames(setproperties, _nameFabric);
+
+        public ApplicationNamesSetter(ApplicationNameFabric nameFabric)
+        {
             _nameFabric = nameFabric;
         }
     }
