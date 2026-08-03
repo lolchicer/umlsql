@@ -5,6 +5,13 @@ public interface INameFabric<T> where T : IRow
     public string Name(T t);
 }
 
+public static class NameFabrication
+{
+    public static string Name<T>(this T t, INameFabric<T> nameFabric)
+        where T : IRow =>
+        nameFabric.Name(t);
+}
+
 public class ApplicationNameFabric :
 INameFabric<Function>,
 INameFabric<Argument>,
