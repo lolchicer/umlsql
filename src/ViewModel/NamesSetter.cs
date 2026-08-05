@@ -13,6 +13,8 @@
     }
 
     public class ApplicationNamesSetter :
+        INamesSetter<Model>,
+        INamesSetter<View>,
         INamesSetter<Function>,
         INamesSetter<Argument>,
         INamesSetter<Interface>,
@@ -29,6 +31,10 @@
                 row.Name = row.Name(nameFabric);
         }
 
+        void INamesSetter<Model>.SetNames(IEnumerable<Model> models) =>
+            SetNames(models, _nameFabric);
+        void INamesSetter<View>.SetNames(IEnumerable<View> views) =>
+            SetNames(views, _nameFabric);
         void INamesSetter<Function>.SetNames(IEnumerable<Function> functions) =>
             SetNames(functions, _nameFabric);
         void INamesSetter<Argument>.SetNames(IEnumerable<Argument> arguments) =>

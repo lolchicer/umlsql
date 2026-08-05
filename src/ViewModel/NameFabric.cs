@@ -13,6 +13,8 @@ public static class NameFabrication
 }
 
 public class ApplicationNameFabric :
+INameFabric<Model>,
+INameFabric<View>,
 INameFabric<Function>,
 INameFabric<Argument>,
 INameFabric<Interface>,
@@ -20,6 +22,12 @@ INameFabric<Method>,
 INameFabric<Getproperty>,
 INameFabric<Setproperty>
 {
+    string INameFabric<Model>.Name(Model t) =>
+    string.Format("m", t.Id.ToString());
+
+    string INameFabric<View>.Name(View t) =>
+    string.Format("v", t.Id.ToString(), "m", t.ModelId.ToString());
+
     string INameFabric<Function>.Name(Function t) =>
     string.Format("f", t.Id.ToString());
     
