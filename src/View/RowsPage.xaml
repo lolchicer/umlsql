@@ -17,7 +17,7 @@
     <StackPanel>
         <Label FontSize="32">Rows</Label>
         <Border BorderBrush="Gray" BorderThickness="2" />
-        <ListBox ItemsSource="{Binding Source={StaticResource listingDataView}}">
+        <ListBox ItemsSource="{Binding Source={StaticResource listingDataView}}" x:Name="RowsListBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=Name}" Click="NavigateRowPage"></Button>
