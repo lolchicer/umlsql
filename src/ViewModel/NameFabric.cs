@@ -13,6 +13,8 @@ public static class NameFabrication
 }
 
 public class ApplicationNameFabric :
+INameFabric<Model>,
+INameFabric<View>,
 INameFabric<Function>,
 INameFabric<Argument>,
 INameFabric<Interface>,
@@ -20,21 +22,27 @@ INameFabric<Method>,
 INameFabric<Getproperty>,
 INameFabric<Setproperty>
 {
+    string INameFabric<Model>.Name(Model t) =>
+    string.Concat("m", t.Id.ToString());
+
+    string INameFabric<View>.Name(View t) =>
+    string.Concat("v", t.Id.ToString(), "m", t.ModelId.ToString());
+
     string INameFabric<Function>.Name(Function t) =>
-    string.Format("f", t.Id.ToString());
+    string.Concat("f", t.Id.ToString());
     
     string INameFabric<Argument>.Name(Argument t) =>
-    string.Format("f", t.Id.ToString(), "a");
+    string.Concat("f", t.Id.ToString(), "a");
     
     string INameFabric<Interface>.Name(Interface t) =>
-    string.Format("f", t.Id.ToString(), "i");
+    string.Concat("f", t.Id.ToString(), "i");
     
     string INameFabric<Method>.Name(Method t) =>
-    string.Format("f", t.Id.ToString(), "m");
+    string.Concat("f", t.Id.ToString(), "m");
     
     string INameFabric<Setproperty>.Name(Setproperty t) =>
-    string.Format("f", t.Id.ToString(), "sp");
+    string.Concat("f", t.Id.ToString(), "sp");
     
     string INameFabric<Getproperty>.Name(Getproperty t) =>
-    string.Format("f", t.Id.ToString(), "gp");
+    string.Concat("f", t.Id.ToString(), "gp");
 }

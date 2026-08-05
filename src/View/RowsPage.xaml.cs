@@ -38,7 +38,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateRowPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new RowPage(Rows[(int)((Button)sender).Content])
+                new RowPage(Rows[RowsListBox.SelectedIndex + 1])
                 );
         }
     }
