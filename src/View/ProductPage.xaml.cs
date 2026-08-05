@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Linq;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Lolchicer.Umlsql.View
 {
@@ -32,6 +33,18 @@ namespace Lolchicer.Umlsql.View
             Resources.Add("ApplicationContext", applicationContext);
 
             InitializeComponent();
+        }
+
+        private void NavigateModelsPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<ViewModel.Model>)_namesSetter).SetNames(ApplicationContext.Models);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Models));
+        }
+
+        private void NavigateViewsPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<ViewModel.View>)_namesSetter).SetNames(ApplicationContext.Views);
+            NavigationService.Navigate(new RowsPage(ApplicationContext.Views));
         }
 
         private void NavigateFunctionsPage(object sender, RoutedEventArgs e)
