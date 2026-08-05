@@ -23,6 +23,10 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
         }
     }
 
+    public DbSet<Model> Models { get; set; } = null!;
+
+    public DbSet<View> Views { get; set; } = null!;
+
     public DbSet<Function> Functions { get; set; } = null!;
 
     public DbSet<Argument> Arguments { get; set; } = null!;
