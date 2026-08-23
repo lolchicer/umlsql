@@ -9,22 +9,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RowsPage">
-    <Page.Resources>
-        <CollectionViewSource
-            Source="{Binding Source={StaticResource Rows}}"
-            x:Key="listingDataView" />
-    </Page.Resources>
     <StackPanel>
         <Label FontSize="32">Rows</Label>
         <Border BorderBrush="Gray" BorderThickness="2" />
-        <ListBox ItemsSource="{Binding Source={StaticResource listingDataView}}" x:Name="RowsListBox">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding Path=Name}" Click="NavigateRowPage"></Button>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
 
+        <StackPanel x:Name="IdPanel"></StackPanel>
         <Border BorderBrush="Gray" BorderThickness="2" />
+
+        <Button Content="Row" Click="NavigateRowPage" />
     </StackPanel>
 </Page>

@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Lolchicer.Umlsql.View.Controls;
 
 namespace Lolchicer.Umlsql.View
 {
@@ -23,6 +24,10 @@ namespace Lolchicer.Umlsql.View
     {
         private ApplicationNamesSetter _namesSetter = new(new ApplicationNameFabric());
 
+        private ModelsRowPageFabric _modelPageFabric;
+
+        private ModelIdBoxTuple _modelIdBoxTuple;
+
         public ApplicationContext ApplicationContext
         {
             get => (ApplicationContext)FindResource("ApplicationContext");
@@ -32,55 +37,22 @@ namespace Lolchicer.Umlsql.View
         {
             Resources.Add("ApplicationContext", applicationContext);
 
+            _modelIdBoxTuple = new ModelIdBoxTuple();
+
+            _modelPageFabric = new(
+                new ModelGetter(
+                    ApplicationContext,
+                    _modelIdBoxTuple
+                    )
+                );
+
             InitializeComponent();
         }
 
         private void NavigateModelsPage(object sender, RoutedEventArgs e)
         {
             ((INamesSetter<ViewModel.Model>)_namesSetter).SetNames(ApplicationContext.Models);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Models));
-        }
-
-        private void NavigateViewsPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<ViewModel.View>)_namesSetter).SetNames(ApplicationContext.Views);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Views));
-        }
-
-        private void NavigateFunctionsPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Function>)_namesSetter).SetNames(ApplicationContext.Functions);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Functions));
-        }
-
-        private void NavigateArgumentsPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Argument>)_namesSetter).SetNames(ApplicationContext.Arguments);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Arguments));
-        }
-
-        private void NavigateInterfacesPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Interface>)_namesSetter).SetNames(ApplicationContext.Interfaces);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Interfaces));
-        }
-
-        private void NavigateMethodsPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Method>)_namesSetter).SetNames(ApplicationContext.Methods);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Methods));
-        }
-
-        private void NavigateGetpropertiesPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Getproperty>)_namesSetter).SetNames(ApplicationContext.Getproperties);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Getproperties));
-        }
-
-        private void NavigateSetpropertiesPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<Setproperty>)_namesSetter).SetNames(ApplicationContext.Setproperties);
-            NavigationService.Navigate(new RowsPage(ApplicationContext.Setproperties));
+            NavigationService.Navigate(new RowsPage(_modelPageFabric, _modelIdBoxTuple.IdBoxes));
         }
     }
 }

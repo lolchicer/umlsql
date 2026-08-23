@@ -20,25 +20,22 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class RowsPage : Page
     {
-        public IList<ISettableRow> Rows
-        {
-            get => (IList<ISettableRow>)FindResource("Rows");
-        }
+        private IRowPageFabric _rowPageFabric;
 
-        public RowsPage(IEnumerable<ISettableRow> rows)
+        public RowsPage(IRowPageFabric rowPageFabric, IEnumerable<TextBox> idBoxes)
         {
-            Resources.Add("Rows", new List<ISettableRow>());
-
-            foreach (var row in rows)
-                Rows.Add(row);
+            _rowPageFabric = rowPageFabric;
 
             InitializeComponent();
+
+            foreach (var idBox in idBoxes)
+                IdPanel.Children.Add(idBox);
         }
 
         private void NavigateRowPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                new RowPage(Rows[RowsListBox.SelectedIndex + 1])
+                _rowPageFabric.RowPage
                 );
         }
     }
