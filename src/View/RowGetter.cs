@@ -30,4 +30,25 @@ namespace Lolchicer.Umlsql.View
             _modelIdBoxTuple = modelIdBoxTuple;
         }
     }
+
+    public class ViewGetter : IRowGetter<ViewModel.View>
+    {
+        private ApplicationContext _context;
+
+        private ViewIdBoxTuple _viewIdBoxTuple;
+
+        public ViewModel.View Row => (
+            from view in _context.Views
+            where
+            view.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text) &&
+            view.ModelId == Convert.ToInt32(_viewIdBoxTuple.ModelIdBox.Text)
+            select view
+        ).First();
+
+        public ViewGetter(ApplicationContext context, ViewIdBoxTuple viewIdBoxTuple)
+        {
+            _context = context;
+            _viewIdBoxTuple = viewIdBoxTuple;
+        }
+    }
 }

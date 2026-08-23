@@ -46,5 +46,16 @@ namespace Lolchicer.Umlsql.View
                     modelIdBoxTuple));
             NavigationService.Navigate(new RowsPage(modelsRowPageFabric, modelIdBoxTuple.IdBoxes));
         }
+
+        private void NavigateViewsPage(object sender, RoutedEventArgs e)
+        {
+            ((INamesSetter<ViewModel.View>)_namesSetter).SetNames(ApplicationContext.Views);
+            ViewIdBoxTuple viewIdBoxTuple = new();
+            ViewsRowPageFabric viewsRowPageFabric = new(
+                new ViewGetter(
+                    ApplicationContext,
+                    viewIdBoxTuple));
+            NavigationService.Navigate(new RowsPage(viewsRowPageFabric, viewIdBoxTuple.IdBoxes));
+        }
     }
 }

@@ -26,4 +26,16 @@ namespace Lolchicer.Umlsql.View
             _modelGetter = modelGetter;
         }
     }
+
+    public class ViewsRowPageFabric : IRowPageFabric<ViewModel.View>
+    {
+        IRowGetter<ViewModel.View> _viewGetter;
+
+        public RowPage RowPage => new RowPage(_viewGetter.Row);
+
+        public ViewsRowPageFabric(IRowGetter<ViewModel.View> viewGetter)
+        {
+            _viewGetter = viewGetter;
+        }
+    }
 }
