@@ -18,11 +18,10 @@ namespace Lolchicer.Umlsql.View
 
         private ModelIdBoxTuple _modelIdBoxTuple;
 
-        public ViewModel.Model Row => (
-            from model in _context.Models
-            where model.Id == Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
-            select model
-        ).First();
+        public ViewModel.Model Row => _context.Models.Single(
+            model =>
+            model.Id == Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
+        );
 
         public ModelGetter(ApplicationContext context, ModelIdBoxTuple modelIdBoxTuple)
         {
@@ -37,13 +36,11 @@ namespace Lolchicer.Umlsql.View
 
         private ViewIdBoxTuple _viewIdBoxTuple;
 
-        public ViewModel.View Row => (
-            from view in _context.Views
-            where
+        public ViewModel.View Row => _context.Views.Single(
+            view =>
             view.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text) &&
             view.ModelId == Convert.ToInt32(_viewIdBoxTuple.ModelIdBox.Text)
-            select view
-        ).First();
+        );
 
         public ViewGetter(ApplicationContext context, ViewIdBoxTuple viewIdBoxTuple)
         {
