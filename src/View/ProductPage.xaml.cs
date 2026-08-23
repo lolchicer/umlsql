@@ -24,10 +24,6 @@ namespace Lolchicer.Umlsql.View
     {
         private ApplicationNamesSetter _namesSetter = new(new ApplicationNameFabric());
 
-        private ModelsRowPageFabric _modelPageFabric;
-
-        private ModelIdBoxTuple _modelIdBoxTuple;
-
         public ApplicationContext ApplicationContext
         {
             get => (ApplicationContext)FindResource("ApplicationContext");
@@ -37,22 +33,18 @@ namespace Lolchicer.Umlsql.View
         {
             Resources.Add("ApplicationContext", applicationContext);
 
-            _modelIdBoxTuple = new ModelIdBoxTuple();
-
-            _modelPageFabric = new(
-                new ModelGetter(
-                    ApplicationContext,
-                    _modelIdBoxTuple
-                    )
-                );
-
             InitializeComponent();
         }
 
         private void NavigateModelsPage(object sender, RoutedEventArgs e)
         {
             ((INamesSetter<ViewModel.Model>)_namesSetter).SetNames(ApplicationContext.Models);
-            NavigationService.Navigate(new RowsPage(_modelPageFabric, _modelIdBoxTuple.IdBoxes));
+            ModelIdBoxTuple modelIdBoxTuple = new();
+            ModelsRowPageFabric modelsRowPageFabric = new(
+                new ModelGetter(
+                    ApplicationContext,
+                    modelIdBoxTuple));
+            NavigationService.Navigate(new RowsPage(modelsRowPageFabric, modelIdBoxTuple.IdBoxes));
         }
     }
 }
