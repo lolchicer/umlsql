@@ -44,7 +44,10 @@ namespace Lolchicer.Umlsql.View
                 new ModelGetter(
                     ApplicationContext,
                     modelIdBoxTuple));
-            NavigationService.Navigate(new RowsPage(modelsRowPageFabric, modelIdBoxTuple.IdBoxes));
+            ModelTableController modelTableController = new(
+                ApplicationContext,
+                modelIdBoxTuple);
+            NavigationService.Navigate(new RowsPage(modelsRowPageFabric, modelTableController, modelIdBoxTuple.IdBoxes));
         }
 
         private void NavigateViewsPage(object sender, RoutedEventArgs e)
@@ -55,7 +58,10 @@ namespace Lolchicer.Umlsql.View
                 new ViewGetter(
                     ApplicationContext,
                     viewIdBoxTuple));
-            NavigationService.Navigate(new RowsPage(viewsRowPageFabric, viewIdBoxTuple.IdBoxes));
+            ViewTableController viewTableController = new(
+                ApplicationContext,
+                viewIdBoxTuple);
+            NavigationService.Navigate(new RowsPage(viewsRowPageFabric, viewTableController, viewIdBoxTuple.IdBoxes));
         }
     }
 }

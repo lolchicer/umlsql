@@ -21,10 +21,12 @@ namespace Lolchicer.Umlsql.View
     public partial class RowsPage : Page
     {
         private IRowPageFabric _rowPageFabric;
+        private ITableController _tableController;
 
-        public RowsPage(IRowPageFabric rowPageFabric, IEnumerable<TextBox> idBoxes)
+        public RowsPage(IRowPageFabric rowPageFabric, ITableController tableController, IEnumerable<TextBox> idBoxes)
         {
             _rowPageFabric = rowPageFabric;
+            _tableController = tableController;
 
             InitializeComponent();
 
@@ -37,6 +39,11 @@ namespace Lolchicer.Umlsql.View
             NavigationService.Navigate(
                 _rowPageFabric.RowPage
                 );
+        }
+
+        private void CreateNewRow(object sender, RoutedEventArgs e)
+        {
+            _tableController.CreateNewRow();
         }
     }
 }

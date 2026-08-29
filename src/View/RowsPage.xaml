@@ -17,5 +17,6 @@
         <Border BorderBrush="Gray" BorderThickness="2" />
 
         <Button Content="Row" Click="NavigateRowPage" />
+        <Button Content="New" Click="CreateNewRow" />
     </StackPanel>
 </Page>
