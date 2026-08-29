@@ -13,14 +13,14 @@
     }
 
     public class ApplicationNamesSetter :
-        INamesSetter<Model>,
-        INamesSetter<View>,
-        INamesSetter<Function>,
-        INamesSetter<Argument>,
-        INamesSetter<Interface>,
-        INamesSetter<Method>,
-        INamesSetter<Getproperty>,
-        INamesSetter<Setproperty>
+        INamesSetter<Core.Model>,
+        INamesSetter<Core.View>,
+        INamesSetter<Functional.Function>,
+        INamesSetter<Functional.Argument>,
+        INamesSetter<Functional.Interface>,
+        INamesSetter<Functional.Method>,
+        INamesSetter<Functional.Getproperty>,
+        INamesSetter<Functional.Setproperty>
     {
         private ApplicationNameFabric _nameFabric;
 
@@ -31,21 +31,21 @@
                 row.Name = row.Name(nameFabric);
         }
 
-        void INamesSetter<Model>.SetNames(IEnumerable<Model> models) =>
+        void INamesSetter<Core.Model>.SetNames(IEnumerable<Core.Model> models) =>
             SetNames(models, _nameFabric);
-        void INamesSetter<View>.SetNames(IEnumerable<View> views) =>
+        void INamesSetter<Core.View>.SetNames(IEnumerable<Core.View> views) =>
             SetNames(views, _nameFabric);
-        void INamesSetter<Function>.SetNames(IEnumerable<Function> functions) =>
+        void INamesSetter<Functional.Function>.SetNames(IEnumerable<Functional.Function> functions) =>
             SetNames(functions, _nameFabric);
-        void INamesSetter<Argument>.SetNames(IEnumerable<Argument> arguments) =>
+        void INamesSetter<Functional.Argument>.SetNames(IEnumerable<Functional.Argument> arguments) =>
             SetNames(arguments, _nameFabric);
-        void INamesSetter<Interface>.SetNames(IEnumerable<Interface> interfaces) =>
+        void INamesSetter<Functional.Interface>.SetNames(IEnumerable<Functional.Interface> interfaces) =>
             SetNames(interfaces, _nameFabric);
-        void INamesSetter<Method>.SetNames(IEnumerable<Method> methods) =>
+        void INamesSetter<Functional.Method>.SetNames(IEnumerable<Functional.Method> methods) =>
             SetNames(methods, _nameFabric);
-        void INamesSetter<Getproperty>.SetNames(IEnumerable<Getproperty> getproperties) =>
+        void INamesSetter<Functional.Getproperty>.SetNames(IEnumerable<Functional.Getproperty> getproperties) =>
             SetNames(getproperties, _nameFabric);
-        void INamesSetter<Setproperty>.SetNames(IEnumerable<Setproperty> setproperties) =>
+        void INamesSetter<Functional.Setproperty>.SetNames(IEnumerable<Functional.Setproperty> setproperties) =>
             SetNames(setproperties, _nameFabric);
 
         public ApplicationNamesSetter(ApplicationNameFabric nameFabric)

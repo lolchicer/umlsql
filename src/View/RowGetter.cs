@@ -12,13 +12,13 @@ namespace Lolchicer.Umlsql.View
         public T Row { get; }
     }
 
-    public class ModelGetter : IRowGetter<ViewModel.Model>
+    public class ModelGetter : IRowGetter<ViewModel.Core.Model>
     {
         private ApplicationContext _context;
 
         private ModelIdBoxTuple _modelIdBoxTuple;
 
-        public ViewModel.Model Row => _context.Models.Single(
+        public ViewModel.Core.Model Row => _context.Models.Single(
             model =>
             model.Id == Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
         );
@@ -30,13 +30,13 @@ namespace Lolchicer.Umlsql.View
         }
     }
 
-    public class ViewGetter : IRowGetter<ViewModel.View>
+    public class ViewGetter : IRowGetter<ViewModel.Core.View>
     {
         private ApplicationContext _context;
 
         private ViewIdBoxTuple _viewIdBoxTuple;
 
-        public ViewModel.View Row => _context.Views.Single(
+        public ViewModel.Core.View Row => _context.Views.Single(
             view =>
             view.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text) &&
             view.ModelId == Convert.ToInt32(_viewIdBoxTuple.ModelIdBox.Text)

@@ -13,36 +13,36 @@ public static class NameFabrication
 }
 
 public class ApplicationNameFabric :
-INameFabric<Model>,
-INameFabric<View>,
-INameFabric<Function>,
-INameFabric<Argument>,
-INameFabric<Interface>,
-INameFabric<Method>,
-INameFabric<Getproperty>,
-INameFabric<Setproperty>
+INameFabric<Core.Model>,
+INameFabric<Core.View>,
+INameFabric<Functional.Function>,
+INameFabric<Functional.Argument>,
+INameFabric<Functional.Interface>,
+INameFabric<Functional.Method>,
+INameFabric<Functional.Getproperty>,
+INameFabric<Functional.Setproperty>
 {
-    string INameFabric<Model>.Name(Model t) =>
+    string INameFabric<Core.Model>.Name(Core.Model t) =>
     string.Concat("m", t.Id.ToString());
 
-    string INameFabric<View>.Name(View t) =>
+    string INameFabric<Core.View>.Name(Core.View t) =>
     string.Concat("v", t.Id.ToString(), "m", t.ModelId.ToString());
 
-    string INameFabric<Function>.Name(Function t) =>
+    string INameFabric<Functional.Function>.Name(Functional.Function t) =>
     string.Concat("f", t.Id.ToString());
     
-    string INameFabric<Argument>.Name(Argument t) =>
+    string INameFabric<Functional.Argument>.Name(Functional.Argument t) =>
     string.Concat("f", t.Id.ToString(), "a");
     
-    string INameFabric<Interface>.Name(Interface t) =>
+    string INameFabric<Functional.Interface>.Name(Functional.Interface t) =>
     string.Concat("f", t.Id.ToString(), "i");
     
-    string INameFabric<Method>.Name(Method t) =>
+    string INameFabric<Functional.Method>.Name(Functional.Method t) =>
     string.Concat("f", t.Id.ToString(), "m");
     
-    string INameFabric<Setproperty>.Name(Setproperty t) =>
+    string INameFabric<Functional.Setproperty>.Name(Functional.Setproperty t) =>
     string.Concat("f", t.Id.ToString(), "sp");
     
-    string INameFabric<Getproperty>.Name(Getproperty t) =>
+    string INameFabric<Functional.Getproperty>.Name(Functional.Getproperty t) =>
     string.Concat("f", t.Id.ToString(), "gp");
 }

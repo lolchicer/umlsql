@@ -38,7 +38,7 @@ namespace Lolchicer.Umlsql.View
 
         private void NavigateModelsPage(object sender, RoutedEventArgs e)
         {
-            ((INamesSetter<ViewModel.Model>)_namesSetter).SetNames(ApplicationContext.Models);
+            ((INamesSetter<ViewModel.Core.Model>)_namesSetter).SetNames(ApplicationContext.Models);
             ModelIdBoxTuple modelIdBoxTuple = new();
             ModelsRowPageFabric modelsRowPageFabric = new(
                 new ModelGetter(
@@ -49,7 +49,7 @@ namespace Lolchicer.Umlsql.View
 
         private void NavigateViewsPage(object sender, RoutedEventArgs e)
         {
-            ((INamesSetter<ViewModel.View>)_namesSetter).SetNames(ApplicationContext.Views);
+            ((INamesSetter<ViewModel.Core.View>)_namesSetter).SetNames(ApplicationContext.Views);
             ViewIdBoxTuple viewIdBoxTuple = new();
             ViewsRowPageFabric viewsRowPageFabric = new(
                 new ViewGetter(
