@@ -1,4 +1,4 @@
-namespace Lolchicer.Umlsql.Model;
+namespace Lolchicer.Umlsql.Model.Core;
 
 public interface IModel
 {

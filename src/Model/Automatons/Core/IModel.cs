@@ -1,6 +1,6 @@
-namespace Lolchicer.Umlsql.Model.Automatons;
+namespace Lolchicer.Umlsql.Model.Automatons.Core;
 
-public interface IModel : Model.IModel
+public interface IModel : Model.Core.IModel
 {
     public void Approve(IModel model);
     public void Cancel(IModel model);

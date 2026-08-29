@@ -1,4 +1,4 @@
-﻿namespace Lolchicer.Umlsql.Model;
+﻿namespace Lolchicer.Umlsql.Model.Functional;
 
 public interface IInterface
 {
