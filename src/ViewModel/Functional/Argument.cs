@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 using System.Text;
 
-namespace Lolchicer.Umlsql.ViewModel
+namespace Lolchicer.Umlsql.ViewModel.Functional
 {
     [Table("arguments")]
     public class Argument : IArgument, ISettableRow, INotifyPropertyChanged

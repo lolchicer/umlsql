@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lolchicer.Umlsql.ViewModel;
+namespace Lolchicer.Umlsql.ViewModel.Core;
 
 [Table("models")]
-public class Model : Automatons.IModel, ISettableRow, INotifyPropertyChanged
+public class Model : Automatons.Core.IModel, ISettableRow, INotifyPropertyChanged
 {
     private int _id;
 

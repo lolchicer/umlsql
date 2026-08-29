@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lolchicer.Umlsql.ViewModel;
+namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 [Table("methods")]
 public class Method : IMethod, ISettableRow, INotifyPropertyChanged

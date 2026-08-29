@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Lolchicer.Umlsql.ViewModel
+namespace Lolchicer.Umlsql.ViewModel.Functional
 {
     [Table("functions")]
     public class Function : IFunction, ISettableRow, INotifyPropertyChanged
