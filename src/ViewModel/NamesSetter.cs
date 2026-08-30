@@ -1,4 +1,6 @@
-﻿namespace Lolchicer.Umlsql.ViewModel
+﻿using Lolchicer.Umlsql.Model.Documentational;
+
+namespace Lolchicer.Umlsql.ViewModel
 {
     public interface INamesSetter<T> where T : INameable
     {

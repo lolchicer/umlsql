@@ -36,32 +36,18 @@ namespace Lolchicer.Umlsql.View
             InitializeComponent();
         }
 
-        private void NavigateModelsPage(object sender, RoutedEventArgs e)
+        private void NavigateCardsPage(object sender, RoutedEventArgs e)
         {
-            ((INamesSetter<ViewModel.Core.Model>)_namesSetter).SetNames(ApplicationContext.Models);
-            ModelIdBoxTuple modelIdBoxTuple = new();
-            ModelsRowPageFabric modelsRowPageFabric = new(
-                new ModelGetter(
+            ((INamesSetter<ViewModel.Documentational.Card>)_namesSetter).SetNames(ApplicationContext.Cards);
+            CardIdBoxTuple cardIdBoxTuple = new();
+            CardPageFabric cardPageFabric = new(
+                new CardGetter(
                     ApplicationContext,
-                    modelIdBoxTuple));
-            ModelTableController modelTableController = new(
+                    cardIdBoxTuple));
+            CardTableController cardTableController = new(
                 ApplicationContext,
-                modelIdBoxTuple);
-            NavigationService.Navigate(new RowsPage(modelsRowPageFabric, modelTableController, modelIdBoxTuple.IdBoxes));
-        }
-
-        private void NavigateViewsPage(object sender, RoutedEventArgs e)
-        {
-            ((INamesSetter<ViewModel.Core.View>)_namesSetter).SetNames(ApplicationContext.Views);
-            ViewIdBoxTuple viewIdBoxTuple = new();
-            ViewsRowPageFabric viewsRowPageFabric = new(
-                new ViewGetter(
-                    ApplicationContext,
-                    viewIdBoxTuple));
-            ViewTableController viewTableController = new(
-                ApplicationContext,
-                viewIdBoxTuple);
-            NavigationService.Navigate(new RowsPage(viewsRowPageFabric, viewTableController, viewIdBoxTuple.IdBoxes));
+                cardIdBoxTuple);
+            NavigationService.Navigate(new CardsPage(cardPageFabric, cardTableController, cardIdBoxTuple.IdBoxes));
         }
     }
 }

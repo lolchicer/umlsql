@@ -1,4 +1,5 @@
-﻿using Lolchicer.Umlsql.ViewModel;
+﻿using Lolchicer.Umlsql.Model.Documentational;
+using Lolchicer.Umlsql.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,13 +16,13 @@ using System.Windows.Shapes;
 namespace Lolchicer.Umlsql.View
 {
     /// <summary>
-    /// Логика взаимодействия для RowPage.xaml
+    /// Логика взаимодействия для CardPage.xaml
     /// </summary>
-    public partial class RowPage : Page 
+    public partial class CardPage : Page 
     {
-        public RowPage(ISettableRow row)
+        public CardPage(ICard card)
         {
-            Resources.Add("Row", row);
+            Resources.Add("Card", card);
 
             InitializeComponent();
         }
