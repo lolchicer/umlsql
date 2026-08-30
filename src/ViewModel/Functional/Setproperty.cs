@@ -9,7 +9,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel.Functional
 {
     [Table("setproperties")]
-    public class Setproperty : ISetproperty, ISettableRow, INotifyPropertyChanged
+    public class Setproperty : Model.Functional.ISetproperty, INotifyPropertyChanged
     {
         private int _id;
 
@@ -72,6 +72,6 @@ namespace Lolchicer.Umlsql.ViewModel.Functional
             }
         }
 
-        IMethod ISetproperty.Method => Method;
+        Model.Functional.IMethod Model.Functional.ISetproperty.Method => Method;
     }
 }

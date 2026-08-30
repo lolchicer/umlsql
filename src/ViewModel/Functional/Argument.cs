@@ -10,7 +10,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel.Functional
 {
     [Table("arguments")]
-    public class Argument : IArgument, ISettableRow, INotifyPropertyChanged
+    public class Argument : Model.Functional.IArgument, INotifyPropertyChanged
     {
         private int _id;
 
@@ -80,7 +80,7 @@ namespace Lolchicer.Umlsql.ViewModel.Functional
 
         public IEnumerable<Method> Methods { get; } = [];
 
-        IFunction IArgument.Function => Function;
-        IFunction IArgument.Type => Type;
+        Model.Functional.IFunction Model.Functional.IArgument.Function => Function;
+        Model.Functional.IFunction Model.Functional.IArgument.Type => Type;
     }
 }

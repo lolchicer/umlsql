@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 [Table("interfaces")]
-public class Interface : IInterface, ISettableRow, INotifyPropertyChanged
+public class Interface : Model.Functional.IInterface, INotifyPropertyChanged
 {
     private int _id;
 
@@ -56,5 +56,5 @@ public class Interface : IInterface, ISettableRow, INotifyPropertyChanged
         }
     }
 
-    IFunction IInterface.Function => Function;
+    Model.Functional.IFunction Model.Functional.IInterface.Function => Function;
 }

@@ -9,7 +9,7 @@ using System.Text;
 namespace Lolchicer.Umlsql.ViewModel.Functional
 {
     [Table("functions")]
-    public class Function : IFunction, ISettableRow, INotifyPropertyChanged
+    public class Function : Model.Functional.IFunction, INotifyPropertyChanged
     {
         private int _id;
 

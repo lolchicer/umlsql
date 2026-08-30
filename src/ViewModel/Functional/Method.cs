@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 [Table("methods")]
-public class Method : IMethod, ISettableRow, INotifyPropertyChanged
+public class Method : Model.Functional.IMethod, INotifyPropertyChanged
 {
     private int _id;
 
@@ -66,5 +66,5 @@ public class Method : IMethod, ISettableRow, INotifyPropertyChanged
     public IEnumerable<Getproperty> Getproperties { get; } = [];
     public IEnumerable<Setproperty> Setproperties { get; } = [];
 
-    IArgument IMethod.Argument => Argument;
+    Model.Functional.IArgument Model.Functional.IMethod.Argument => Argument;
 }

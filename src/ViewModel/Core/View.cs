@@ -7,15 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel.Core;
 
 [Table("views")]
-public class View : IView, ISettableRow, INotifyPropertyChanged
+public class View : Umlsql.Model.Core.IView, INotifyPropertyChanged
 {
     private int _id;
 
     private Model _model;
 
     private Model _type;
-
-    private string _name = "";
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -62,17 +60,6 @@ public class View : IView, ISettableRow, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
-    IModel IView.Model => Model;
-    IModel IView.Type => Type;
+    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Model => Model;
+    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Type => Type;
 }

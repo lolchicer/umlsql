@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel.Core;
 
 [Table("models")]
-public class Model : Automatons.Core.IModel, ISettableRow, INotifyPropertyChanged
+public class Model : Automatons.Core.IModel, INotifyPropertyChanged
 {
     private int _id;
 
