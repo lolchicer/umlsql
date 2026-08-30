@@ -27,6 +27,8 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Core.View> Views { get; set; } = null!;
 
+    public DbSet<Documentational.Card> Cards { get; set; } = null!;
+
     public DbSet<Functional.Function> Functions { get; set; } = null!;
 
     public DbSet<Functional.Argument> Arguments { get; set; } = null!;
@@ -62,6 +64,18 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
             .WithMany(type => type.ViewTypes)
             .HasForeignKey(view => view.TypeId)
             .HasPrincipalKey(type => type.Id);
+    }
+
+    private void CreateCard(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Documentational.Card>()
+            .HasKey(card => new { card.Id, card.ModelId });
+
+        modelBuilder.Entity<Documentational.Card>()
+            .HasOne(card => card.Model)
+            .WithMany(model => model.Cards)
+            .HasForeignKey(card => card.ModelId)
+            .HasPrincipalKey(model => model.Id);
     }
 
     private void CreateFunction(ModelBuilder modelBuilder)
@@ -145,6 +159,7 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
     {
         CreateModel(modelBuilder);
         CreateView(modelBuilder);
+        CreateCard(modelBuilder);
         CreateFunction(modelBuilder);
         CreateArgument(modelBuilder);
         CreateInterface(modelBuilder);

@@ -44,4 +44,5 @@ public class Model : Automatons.Core.IModel, INotifyPropertyChanged
 
     public IEnumerable<View> Views { get; } = [];
     public IEnumerable<View> ViewTypes { get; } = [];
+    public IEnumerable<Documentational.Card> Cards { get; } = [];
 }
