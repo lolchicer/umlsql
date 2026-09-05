@@ -67,17 +67,6 @@ public class Argument : Model.Functional.IArgument, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
     public IEnumerable<Method> Methods { get; } = [];
 
     Model.Functional.IFunction Model.Functional.IArgument.Function => Function;

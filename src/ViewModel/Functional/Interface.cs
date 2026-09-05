@@ -45,16 +45,5 @@ public class Interface : Model.Functional.IInterface, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
     Model.Functional.IFunction Model.Functional.IInterface.Function => Function;
 }

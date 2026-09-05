@@ -61,16 +61,5 @@ public class Getproperty : Model.Functional.IGetproperty, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
     Model.Functional.IMethod Model.Functional.IGetproperty.Method => Method;
 }

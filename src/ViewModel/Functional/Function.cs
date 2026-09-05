@@ -28,17 +28,6 @@ public class Function : Model.Functional.IFunction, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
     public IEnumerable<Argument> Arguments { get; } = [];
     public IEnumerable<Argument> ArgumentTypes { get; } = [];
     public IEnumerable<Interface> Interfaces { get; } = [];
