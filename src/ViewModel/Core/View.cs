@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lolchicer.Umlsql.ViewModel.Core;
 
 [Table("views")]
-public class View : Umlsql.Model.Core.IView, INotifyPropertyChanged
+public class View : IView, INotifyPropertyChanged
 {
     private int _id;
 
@@ -60,6 +60,6 @@ public class View : Umlsql.Model.Core.IView, INotifyPropertyChanged
         }
     }
 
-    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Model => Model;
-    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Type => Type;
+    IModel IView.Model => Model;
+    IModel IView.Type => Type;
 }
