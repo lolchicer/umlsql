@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-public interface ISetproperty : Model.Functional.ISetproperty
+public interface ISetproperty : Core.IModel, Model.Functional.ISetproperty
 {
     public new IMethod Method { get; }
 

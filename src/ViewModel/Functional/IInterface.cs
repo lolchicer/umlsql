@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-public interface IInterface : Model.Functional.IInterface
+public interface IInterface : Core.IModel, Model.Functional.IInterface
 {
     public new IFunction Function { get; }
 
