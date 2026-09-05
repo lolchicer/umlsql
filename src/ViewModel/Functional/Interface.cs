@@ -13,8 +13,6 @@ public class Interface : Model.Functional.IInterface, INotifyPropertyChanged
 
     private Function _function;
 
-    private string _name = "";
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     [Column("id")]

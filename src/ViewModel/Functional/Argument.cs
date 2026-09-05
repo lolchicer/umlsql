@@ -18,8 +18,6 @@ public class Argument : Model.Functional.IArgument, INotifyPropertyChanged
 
     private Function _type;
 
-    private string _name = "";
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     [Column("id")]

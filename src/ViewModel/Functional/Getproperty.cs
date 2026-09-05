@@ -15,8 +15,6 @@ public class Getproperty : Model.Functional.IGetproperty, INotifyPropertyChanged
 
     private Method _method;
 
-    private string _name = "";
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     [Column("id")]

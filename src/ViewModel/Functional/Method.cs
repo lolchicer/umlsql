@@ -13,8 +13,6 @@ public class Method : Model.Functional.IMethod, INotifyPropertyChanged
 
     private Argument _argument;
 
-    private string _name = "";
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     [Column("id")]
