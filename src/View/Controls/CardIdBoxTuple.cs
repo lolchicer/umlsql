@@ -2,7 +2,7 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-public class IdBoxTuple : IIdBoxTuple
+public class CardIdBoxTuple : IIdBoxTuple
 {
     private readonly TextBox _idBox;
     private readonly TextBox _modelIdBox;
@@ -13,7 +13,7 @@ public class IdBoxTuple : IIdBoxTuple
     public TextBox IdBox => _idBox;
     public TextBox ModelIdBox => _modelIdBox;
 
-    public IdBoxTuple()
+    public CardIdBoxTuple()
     {
         _idBox = new();
         _modelIdBox = new();
