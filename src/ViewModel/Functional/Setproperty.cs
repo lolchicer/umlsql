@@ -1,77 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace Lolchicer.Umlsql.ViewModel.Functional
+namespace Lolchicer.Umlsql.ViewModel.Functional;
+
+public partial class Setproperty
+    : INotifyPropertyChanged, ISetproperty
 {
-    [Table("setproperties")]
-    public class Setproperty : Model.Functional.ISetproperty, INotifyPropertyChanged
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private Method _method;
+
+    public required Method Method
     {
-        private int _id;
-
-        private Method _method;
-
-        private string _name = "";
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        [Column("id")]
-        public required int Id
+        get => _method;
+        set
         {
-            get => _id;
-            set
-            {
-                _id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
+            _method = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
-
-        [Column("method")]
-        public required int MethodId
-        {
-            get;
-            set;
-        }
-
-        [Column("argument")]
-        public required int ArgumentId
-        {
-            get;
-            set;
-        }
-
-        [Column("function")]
-        public required int FunctionId
-        {
-            get;
-            set;
-        }
-
-        public required Method Method
-        {
-            get => _method;
-            set
-            {
-                _method = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [NotMapped]
-        public required string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-            }
-        }
-
-        Model.Functional.IMethod Model.Functional.ISetproperty.Method => Method;
     }
+
+    IMethod ISetproperty.Method => Method;
 }

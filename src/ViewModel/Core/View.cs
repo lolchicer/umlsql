@@ -1,44 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lolchicer.Umlsql.ViewModel.Core;
 
-[Table("views")]
-public class View : Umlsql.Model.Core.IView, INotifyPropertyChanged
+public partial class View
+    : INotifyPropertyChanged, IView
 {
-    private int _id;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     private Model _model;
 
     private Model _type;
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    [Column("id")]
-    public required int Id
-    {
-        get => _id;
-        set
-        {
-            _id = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-        }
-    }
-
-    public required int ModelId
-    {
-        get;
-        set;
-    }
-
-    public required int TypeId
-    {
-        get;
-        set;
-    }
 
     public required Model Model
     {
@@ -60,6 +31,6 @@ public class View : Umlsql.Model.Core.IView, INotifyPropertyChanged
         }
     }
 
-    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Model => Model;
-    Umlsql.Model.Core.IModel Umlsql.Model.Core.IView.Type => Type;
+    IModel IView.Model => Model;
+    IModel IView.Type => Type;
 }

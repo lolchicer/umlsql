@@ -1,39 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
 
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-[Table("interfaces")]
-public class Interface : Model.Functional.IInterface, INotifyPropertyChanged
+public partial class Interface
+    : INotifyPropertyChanged, IInterface
 {
-    private int _id;
-
-    private Function _function;
-
-    private string _name = "";
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    [Column("id")]
-    public required int Id
-    {
-        get => _id;
-        set
-        {
-            _id = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-        }
-    }
-
-    [Column("function")]
-    public required int FunctionId
-    {
-        get;
-        set;
-    }
+    private Function _function;
 
     public required Function Function
     {
@@ -45,16 +19,5 @@ public class Interface : Model.Functional.IInterface, INotifyPropertyChanged
         }
     }
 
-    [NotMapped]
-    public required string Name
-    {
-        get => _name;
-        set
-        {
-            _name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-        }
-    }
-
-    Model.Functional.IFunction Model.Functional.IInterface.Function => Function;
+    IFunction IInterface.Function => Function;
 }

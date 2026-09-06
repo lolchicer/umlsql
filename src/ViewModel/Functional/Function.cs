@@ -1,46 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace Lolchicer.Umlsql.ViewModel.Functional
+namespace Lolchicer.Umlsql.ViewModel.Functional;
+
+public partial class Function
+    : INotifyPropertyChanged, IFunction
 {
-    [Table("functions")]
-    public class Function : Model.Functional.IFunction, INotifyPropertyChanged
-    {
-        private int _id;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
-        private string _name = "";
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        [Column("id")]
-        public required int Id
-        {
-            get => _id;
-            set
-            {
-                _id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-            }
-        }
-
-        [NotMapped]
-        public required string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-            }
-        }
-
-        public IEnumerable<Argument> Arguments { get; } = [];
-        public IEnumerable<Argument> ArgumentTypes { get; } = [];
-        public IEnumerable<Interface> Interfaces { get; } = [];
-    }
+    public IEnumerable<Argument> Arguments { get; } = [];
+    public IEnumerable<Argument> ArgumentTypes { get; } = [];
+    public IEnumerable<Interface> Interfaces { get; } = [];
 }
