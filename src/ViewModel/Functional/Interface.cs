@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 public partial class Interface
-    : INotifyPropertyChanged, Model.Functional.IInterface
+    : INotifyPropertyChanged, IInterface
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -19,5 +19,5 @@ public partial class Interface
         }
     }
 
-    Model.Functional.IFunction Model.Functional.IInterface.Function => Function;
+    IFunction IInterface.Function => Function;
 }

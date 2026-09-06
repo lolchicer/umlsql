@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 public partial class Argument
-    : INotifyPropertyChanged, Model.Functional.IArgument
+    : INotifyPropertyChanged, IArgument
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -33,6 +33,6 @@ public partial class Argument
 
     public IEnumerable<Method> Methods { get; } = [];
 
-    Model.Functional.IFunction Model.Functional.IArgument.Function => Function;
-    Model.Functional.IFunction Model.Functional.IArgument.Type => Type;
+    IFunction IArgument.Function => Function;
+    IFunction IArgument.Type => Type;
 }

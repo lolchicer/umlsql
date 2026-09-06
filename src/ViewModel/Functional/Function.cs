@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 public partial class Function
-    : INotifyPropertyChanged, Model.Functional.IFunction
+    : INotifyPropertyChanged, IFunction
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
 public partial class Getproperty
-    : INotifyPropertyChanged, Model.Functional.IGetproperty
+    : INotifyPropertyChanged, IGetproperty
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -19,5 +19,5 @@ public partial class Getproperty
         }
     }
 
-    Model.Functional.IMethod Model.Functional.IGetproperty.Method => Method;
+    IMethod IGetproperty.Method => Method;
 }
