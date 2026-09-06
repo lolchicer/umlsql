@@ -1,14 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-public partial class Function : Model.Functional.IFunction, INotifyPropertyChanged
+public partial class Function
+    : INotifyPropertyChanged, Model.Functional.IFunction
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -1,18 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-public partial class Setproperty : Model.Functional.ISetproperty, INotifyPropertyChanged
+public partial class Setproperty
+    : INotifyPropertyChanged, Model.Functional.ISetproperty
 {
-    private Method _method;
-
     public event PropertyChangedEventHandler? PropertyChanged;
+
+    private Method _method;
 
     public required Method Method
     {
