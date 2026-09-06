@@ -1,6 +1,7 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel.Documentational;
 
-public interface ICard : Model.Documentational.ICard
+public interface ICard
+    : Core.IModel, Model.Documentational.ICard
 {
     public new Core.IModel Model { get; }
 

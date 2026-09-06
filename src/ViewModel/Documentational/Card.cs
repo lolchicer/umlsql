@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.ViewModel.Documentational;
 
 public partial class Card
-    : ICard, INotifyPropertyChanged
+    : INotifyPropertyChanged, INameable, ICard
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
