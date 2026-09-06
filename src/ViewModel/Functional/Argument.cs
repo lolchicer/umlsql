@@ -9,41 +9,13 @@ using System.Text;
 
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-[Table("arguments")]
-public class Argument : Model.Functional.IArgument, INotifyPropertyChanged
+public partial class Argument : Model.Functional.IArgument, INotifyPropertyChanged
 {
-    private int _id;
-
     private Function _function;
 
     private Function _type;
 
     public event PropertyChangedEventHandler? PropertyChanged;
-
-    [Column("id")]
-    public required int Id
-    {
-        get => _id;
-        set
-        {
-            _id = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-        }
-    }
-
-    [Column("function")]
-    public required int FunctionId
-    {
-        get;
-        set;
-    }
-
-    [Column("type")]
-    public required int TypeId
-    {
-        get;
-        set;
-    }
 
     public required Function Function
     {

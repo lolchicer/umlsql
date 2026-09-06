@@ -6,39 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-[Table("methods")]
-public class Method : Model.Functional.IMethod, INotifyPropertyChanged
+public partial class Method : Model.Functional.IMethod, INotifyPropertyChanged
 {
-    private int _id;
-
     private Argument _argument;
 
     public event PropertyChangedEventHandler? PropertyChanged;
-
-    [Column("id")]
-    public required int Id
-    {
-        get => _id;
-        set
-        {
-            _id = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-        }
-    }
-
-    [Column("argument")]
-    public required int ArgumentId
-    {
-        get;
-        set;
-    }
-
-    [Column("function")]
-    public required int FunctionId
-    {
-        get;
-        set;
-    }
 
     public required Argument Argument
     {
