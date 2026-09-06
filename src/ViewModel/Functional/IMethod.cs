@@ -1,6 +1,7 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel.Functional;
 
-public interface IMethod : Core.IModel, Model.Functional.IMethod
+public interface IMethod
+    : Core.IModel, Model.Functional.IMethod
 {
     public new IArgument Argument { get; }
 
