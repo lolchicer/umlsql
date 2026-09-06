@@ -1,75 +1,50 @@
-﻿using Lolchicer.Umlsql.Model.Core;
-using Lolchicer.Umlsql.Model.Documentational;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace Lolchicer.Umlsql.ViewModel.Documentational
+namespace Lolchicer.Umlsql.ViewModel.Documentational;
+
+public partial class Card
+    : ICard, INotifyPropertyChanged
 {
-    public class Card : ICard, INotifyPropertyChanged
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private Core.Model _model;
+
+    private string _definition;
+    
+    private string _name;
+
+    public required Core.Model Model
     {
-        private int _id;
-        private Core.Model _model;
-        private string _name;
-        private string _definition;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public required int Id
+        get => _model;
+        set
         {
-            get => _id;
-            set
+            _model = value;
             {
-                _id = value;
+                _model = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
             }
         }
-
-        public required int ModelId
-        {
-            get;
-            set;
-        }
-
-        public required Core.Model Model
-        {
-            get => _model;
-            set
-            {
-                _model = value;
-                {
-                    _model = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-                }
-            }
-        }
-
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                {
-                    _name = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-                }
-            }
-        }
-        public string Definition
-        {
-            get => _definition;
-            set
-            {
-                _definition = value;
-                {
-                    _definition = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
-                }
-            }
-        }
-
-        IModel ICard.Model => Model;
     }
+
+    public required string Definition
+    {
+        get => _definition;
+        set
+        {
+            _definition = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
+        }
+    }
+
+    public required string Name
+    {
+        get => _name;
+        set
+        {
+            _name = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
+        }
+    }   
+
+    Core.IModel ICard.Model => Model;
 }
