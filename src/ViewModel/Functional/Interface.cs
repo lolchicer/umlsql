@@ -12,9 +12,6 @@ public partial class Interface : Model.Functional.IInterface, INotifyPropertyCha
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    [Column("function")]
-    public required int FunctionId { get; set; }
-
     public required Function Function
     {
         get => _function;

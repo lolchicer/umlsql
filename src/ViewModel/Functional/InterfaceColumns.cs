@@ -18,4 +18,11 @@ public partial class Interface
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyChanged)));
         }
     }
+
+    [Column("function")]
+    public required int FunctionId
+    {
+        get;
+        set;
+    }
 }
