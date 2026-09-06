@@ -1,6 +1,7 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel.Core;
 
-public interface IView : Umlsql.Model.Core.IView
+public interface IView
+    : IModel, Umlsql.Model.Core.IView
 {
     public new IModel Model { get; }
     public new IModel Type { get; }
