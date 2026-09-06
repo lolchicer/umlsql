@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
-namespace Lolchicer.Umlsql.View.Controls
+namespace Lolchicer.Umlsql.View.Controls;
+
+public interface IIdBoxTuple
 {
-    public interface IIdBoxTuple
-    {
-        public IEnumerable<TextBox> IdBoxes { get; }
-    }
+    public IEnumerable<TextBox> IdBoxes { get; }
 }
