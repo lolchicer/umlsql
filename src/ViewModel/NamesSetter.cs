@@ -3,7 +3,7 @@
     public interface INamesSetter<T> where T : INameable
     {
         public void SetNames(IEnumerable<T> ts);
-    }
+    }   
 
     public class ApplicationNamesSetter :
         INamesSetter<Documentational.Card>
