@@ -1,6 +1,6 @@
 ﻿namespace Lolchicer.Umlsql.ViewModel
 {
-    public interface INamesSetter<T> where T : ISettableRow
+    public interface INamesSetter<T> where T : Model.Core.IModel
     {
         public void SetNames(IEnumerable<T> ts);
     }
