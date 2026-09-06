@@ -19,12 +19,14 @@ partial class View
         }
     }
 
+    [Column("model")]
     public required int ModelId
     {
         get;
         set;
     }
 
+    [Column("type")]
     public required int TypeId
     {
         get;
