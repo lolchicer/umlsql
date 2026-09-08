@@ -1,4 +1,4 @@
-﻿namespace Lolchicer.Umlsql.View;
+﻿namespace Lolchicer.Umlsql.View.Controls;
 
 public interface IModelGetter<T> where T : ViewModel.Core.IModel
 {
