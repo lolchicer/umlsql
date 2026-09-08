@@ -1,9 +1,9 @@
 ﻿using Lolchicer.Umlsql.ViewModel;
 
-namespace Lolchicer.Umlsql.View;
+namespace Lolchicer.Umlsql.View.Controls;
 
-public class CardGetter(ApplicationContext context)
-    : IModelGetter<ViewModel.Documentational.Card>
+public class ViewGetter(ApplicationContext context)
+    : IModelGetter<ViewModel.Core.View>
 {
     private ApplicationContext _context = context;
 
@@ -11,8 +11,8 @@ public class CardGetter(ApplicationContext context)
 
     public int ModelId { get; set; }
 
-    public ViewModel.Documentational.Card Model =>
-        _context.Cards.First(
+    public ViewModel.Core.View Model =>
+        _context.Views.First(
             model =>
             model.Id == Id &&
             model.ModelId == ModelId);

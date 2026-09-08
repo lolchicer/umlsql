@@ -1,7 +1,7 @@
 ﻿using Lolchicer.Umlsql.View.Controls;
 using Lolchicer.Umlsql.ViewModel;
 
-namespace Lolchicer.Umlsql.View;
+namespace Lolchicer.Umlsql.View.Controls;
 
 public class ControlCardModelGetter(
     ApplicationContext context,
