@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace Lolchicer.Umlsql.View
 {
     /// <summary>
-    /// Логика взаимодействия для CardsPage.xaml
+    /// Логика взаимодействия для ModelsPage.xaml
     /// </summary>
-    public partial class CardsPage : Page
+    public partial class ModelsPage : Page
     {
-        private ICardPageFabric _cardPageFabric;
+        private IModelPageFabric _modelPageFabric;
         private ITableController _tableController;
 
-        public CardsPage(ICardPageFabric cardPageFabric, ITableController tableController, IEnumerable<TextBox> idBoxes)
+        public ModelsPage(IModelPageFabric modelPageFabric, ITableController tableController, IEnumerable<TextBox> idBoxes)
         {
-            _cardPageFabric = cardPageFabric;
+            _modelPageFabric = modelPageFabric;
             _tableController = tableController;
 
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateCardPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                _cardPageFabric.CardPage
+                _modelPageFabric.ModelPage
                 );
         }
 
