@@ -2,7 +2,7 @@
 
 namespace Lolchicer.Umlsql.View;
 
-public class CardPageFabric(IModelGetter<ViewModel.Documentational.ICard> getter) : IModelPageFabric
+public class ViewPageFabric(IModelGetter<ViewModel.Core.IView> getter) : IModelPageFabric
 {
     public ModelPage ModelPage => new(getter.Model);
 }
