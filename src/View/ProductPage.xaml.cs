@@ -36,12 +36,23 @@ namespace Lolchicer.Umlsql.View
             InitializeComponent();
         }
 
+        private void NavigateModelsPage(object sender, RoutedEventArgs e)
+        {
+            ModelGetter getter = new(ApplicationContext);
+            ModelIdBoxTuple idBoxTuple = new(getter);
+            ModelPageFabric pageFabric = new(idBoxTuple);
+            ModelTableController tableController = new(
+                ApplicationContext,
+                idBoxTuple);
+            NavigationService.Navigate(new CardsPage(pageFabric, tableController, idBoxTuple.IdBoxes));
+        }
+
         private void NavigateCardsPage(object sender, RoutedEventArgs e)
         {
             ((INamesSetter<ViewModel.Documentational.Card>)_namesSetter).SetNames(ApplicationContext.Cards);
             CardIdBoxTuple cardIdBoxTuple = new();
             CardPageFabric cardPageFabric = new(
-                new CardGetter(
+                new ControlCardModelGetter(
                     ApplicationContext,
                     cardIdBoxTuple));
             CardTableController cardTableController = new(
