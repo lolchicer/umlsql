@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace Lolchicer.Umlsql.View
 {
     /// <summary>
-    /// Логика взаимодействия для CardPage.xaml
+    /// Логика взаимодействия для ModelPage.xaml
     /// </summary>
-    public partial class CardPage : Page 
+    public partial class ModelPage : Page 
     {
-        public CardPage(ICard card)
+        public ModelPage(ViewModel.Core.IModel model)
         {
-            Resources.Add("Card", card);
+            Resources.Add("Model", model);
 
             InitializeComponent();
         }
