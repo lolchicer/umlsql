@@ -33,8 +33,7 @@ namespace Lolchicer.Umlsql.View
 
         protected override void AddNewRow() => _context.Models.Add(new ViewModel.Core.Model()
         {
-            Id = Convert.ToInt32(_modelIdBoxTuple.IdBox.Text),
-            Name = "123"
+            Id = Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
         });
     }
 
@@ -58,7 +57,7 @@ namespace Lolchicer.Umlsql.View
         (ApplicationContext context, CardIdBoxTuple cardIdBoxTuple)
         : TableController(context)
     {
-        protected CardIdBoxTuple _cardIdBoxTuple;
+        protected CardIdBoxTuple _cardIdBoxTuple = cardIdBoxTuple;
 
         protected override void AddNewRow() => _context.Cards.Add(new ViewModel.Documentational.Card()
         {
