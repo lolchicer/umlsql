@@ -23,23 +23,23 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
         }
     }
 
-    public Task<DbSet<Core.Model>> Models { get; set; } = null!;
+    public DbSet<Core.Model> Models { get; set; } = null!;
 
-    public Task<DbSet<Core.View>> Views { get; set; } = null!;
+    public DbSet<Core.View> Views { get; set; } = null!;
 
-    public Task<DbSet<Documentational.Card>> Cards { get; set; } = null!;
+    public DbSet<Documentational.Card> Cards { get; set; } = null!;
 
-    public Task<DbSet<Functional.Function>> Functions { get; set; } = null!;
+    public DbSet<Functional.Function> Functions { get; set; } = null!;
 
-    public Task<DbSet<Functional.Argument>> Arguments { get; set; } = null!;
+    public DbSet<Functional.Argument> Arguments { get; set; } = null!;
 
-    public Task<DbSet<Functional.Interface>> Interfaces { get; set; } = null!;
+    public DbSet<Functional.Interface> Interfaces { get; set; } = null!;
 
-    public Task<DbSet<Functional.Method>> Methods { get; set; } = null!;
+    public DbSet<Functional.Method> Methods { get; set; } = null!;
 
-    public Task<DbSet<Functional.Getproperty>> Getproperties { get; set; } = null!;
+    public DbSet<Functional.Getproperty> Getproperties { get; set; } = null!;
 
-    public Task<DbSet<Functional.Setproperty>> Setproperties { get; set; } = null!;
+    public DbSet<Functional.Setproperty> Setproperties { get; set; } = null!;
 
     // великий и могучий технический язык, который я не знаю.
     private void CreateModel(ModelBuilder modelBuilder)

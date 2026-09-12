@@ -10,7 +10,7 @@ public class ModelGetter(ApplicationContext context)
     public int Id { get; set; }
 
     public async Task<ViewModel.Core.Model> GetModel() =>
-        (await _context.Models).First(
+        _context.Models.First(
             model =>
             model.Id == Id);
 }

@@ -2,7 +2,7 @@
 
 namespace Lolchicer.Umlsql.View;
 
-public class CardPageFabric(IModelGetterAsync<ViewModel.Documentational.Card> getter) : IModelPageFabricAsync
+public class CardPageFabric(IModelGetter<ViewModel.Documentational.Card> getter) : IModelPageFabric
 {
-    public async Task<ModelPage> GetModelPage() => new(await getter.GetModel());
+    public ModelPage ModelPage => new(getter.Model);
 }

@@ -12,7 +12,7 @@ public class CardGetter(ApplicationContext context)
     public int ModelId { get; set; }
 
     public async Task<ViewModel.Documentational.Card> GetModel() =>
-        (await _context.Cards).First(
+        _context.Cards.First(
             model =>
             model.Id == Id &&
             model.ModelId == ModelId);

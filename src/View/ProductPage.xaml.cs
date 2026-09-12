@@ -58,10 +58,8 @@ namespace Lolchicer.Umlsql.View
             NavigationService.Navigate(new ModelsPage(pageFabric, tableController, idBoxTuple.IdBoxes));
         }
 
-        private async void NavigateCardsPage(object sender, RoutedEventArgs e)
+        private void NavigateCardsPage(object sender, RoutedEventArgs e)
         {
-            var m1 = new List<ViewModel.Functional.Function>(await ApplicationContext.Functions);
-            var m2 = new List<ViewModel.Functional.Argument>(await ApplicationContext.Arguments);
             CardGetter getter = new(ApplicationContext);
             CardIdBoxTuple idBoxTuple = new(getter);
             CardPageFabric pageFabric = new(idBoxTuple);
