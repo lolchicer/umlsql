@@ -6,9 +6,9 @@ namespace Lolchicer.Umlsql.View.Controls;
 public class ControlCardModelGetter(
     ApplicationContext context,
     CardIdBoxTuple cardIdBoxTuple)
-    : IModelGetter<ViewModel.Documentational.Card>
+    : IModelGetterAsync<ViewModel.Documentational.Card>
 {
-    public ViewModel.Documentational.Card Model => context.Cards.Single(
+    public async Task<ViewModel.Documentational.Card> GetModel() => context.Cards.Single(
         card =>
         card.Id == Convert.ToInt32(cardIdBoxTuple.IdBox.Text) &&
         card.ModelId == Convert.ToInt32(cardIdBoxTuple.ModelIdBox.Text)

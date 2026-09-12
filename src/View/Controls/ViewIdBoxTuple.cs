@@ -13,14 +13,11 @@ public class ViewIdBoxTuple
 
     public IEnumerable<TextBox> IdBoxes => _idBoxes;
 
-    public ViewModel.Core.View Model
+    public async Task<ViewModel.Core.View> GetModel()
     {
-        get
-        {
-            _getter.Id = Convert.ToInt32(_idBox.Text);
-            _getter.ModelId = Convert.ToInt32(_modelIdBox.Text);
-            return _getter.Model;
-        }
+        _getter.Id = Convert.ToInt32(_idBox.Text);
+        _getter.ModelId = Convert.ToInt32(_modelIdBox.Text);
+        return await _getter.GetModel();
     }
 
     public TextBox IdBox => _idBox;
