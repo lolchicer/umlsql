@@ -12,7 +12,7 @@ public class ViewGetter(ApplicationContext context)
     public int ModelId { get; set; }
 
     public async Task<ViewModel.Core.View> GetModel() =>
-        _context.Views.First(
+        (await _context.Views).First(
             model =>
             model.Id == Id &&
             model.ModelId == ModelId);

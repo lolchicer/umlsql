@@ -2,7 +2,7 @@
 
 namespace Lolchicer.Umlsql.View;
 
-public class ViewPageFabric(IModelGetter<ViewModel.Core.View> getter) : IModelPageFabric
+public class ViewPageFabric(IModelGetterAsync<ViewModel.Core.View> getter) : IModelPageFabricAsync
 {
-    public ModelPage ModelPage => new(getter.Model);
+    public async Task<ModelPage> GetModelPage() => new(await getter.GetModel());
 }

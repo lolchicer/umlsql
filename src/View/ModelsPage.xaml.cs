@@ -20,10 +20,10 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ModelsPage : Page
     {
-        private IModelPageFabric _modelPageFabric;
+        private IModelPageFabricAsync _modelPageFabric;
         private ITableController _tableController;
 
-        public ModelsPage(IModelPageFabric modelPageFabric, ITableController tableController, IEnumerable<TextBox> idBoxes)
+        public ModelsPage(IModelPageFabricAsync modelPageFabric, ITableController tableController, IEnumerable<TextBox> idBoxes)
         {
             _modelPageFabric = modelPageFabric;
             _tableController = tableController;
@@ -34,10 +34,10 @@ namespace Lolchicer.Umlsql.View
                 IdPanel.Children.Add(idBox);
         }
 
-        private void NavigateCardPage(object sender, RoutedEventArgs e)
+        private async void NavigateCardPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
-                _modelPageFabric.ModelPage
+                await _modelPageFabric.GetModelPage()
                 );
         }
 

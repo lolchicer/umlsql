@@ -31,7 +31,7 @@ namespace Lolchicer.Umlsql.View
     {
         protected ModelIdBoxTuple _modelIdBoxTuple = modelIdBoxTuple;
 
-        protected override void AddNewRow() => _context.Models.Add(new ViewModel.Core.Model()
+        protected async override void AddNewRow() => (await _context.Models).Add(new ViewModel.Core.Model()
         {
             Id = Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
         });
@@ -43,13 +43,13 @@ namespace Lolchicer.Umlsql.View
     {
         protected ViewIdBoxTuple _viewIdBoxTuple = viewIdBoxTuple;
 
-        protected override void AddNewRow() => _context.Views.Add(new ViewModel.Core.View()
+        protected async override void AddNewRow() => (await _context.Views).Add(new ViewModel.Core.View()
         {
             Id = Convert.ToInt32(_viewIdBoxTuple.IdBox.Text),
             ModelId = Convert.ToInt32(_viewIdBoxTuple.IdBox.Text),
             TypeId = 1,
-            Model = _context.Models.First(model => model.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text)),
-            Type = _context.Models.First(type => type.Id == 1)
+            Model = (await _context.Models).First(model => model.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text)),
+            Type = (await _context.Models).First(type => type.Id == 1)
         });
     }
 
@@ -59,11 +59,11 @@ namespace Lolchicer.Umlsql.View
     {
         protected CardIdBoxTuple _cardIdBoxTuple = cardIdBoxTuple;
 
-        protected override void AddNewRow() => _context.Cards.Add(new ViewModel.Documentational.Card()
+        protected async override void AddNewRow() => (await _context.Cards).Add(new ViewModel.Documentational.Card()
         {
             Id = Convert.ToInt32(_cardIdBoxTuple.IdBox.Text),
             ModelId = Convert.ToInt32(_cardIdBoxTuple.ModelIdBox.Text),
-            Model = _context.Models.First(model => model.Id == Convert.ToInt32(_cardIdBoxTuple.IdBox.Text)),
+            Model = (await _context.Models).First(model => model.Id == Convert.ToInt32(_cardIdBoxTuple.IdBox.Text)),
             Definition = "твоя ошибка",
             Name = "123"
         });
