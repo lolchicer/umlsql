@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.View.Controls;
 
 public class ViewGetter(ApplicationContext context)
-    : IModelGetterAsync<ViewModel.Core.View>
+    : IModelGetter<ViewModel.Core.View>
 {
     private ApplicationContext _context = context;
 
@@ -11,7 +11,7 @@ public class ViewGetter(ApplicationContext context)
 
     public int ModelId { get; set; }
 
-    public async Task<ViewModel.Core.View> GetModel() =>
+    public ViewModel.Core.View Model =>
         _context.Views.First(
             model =>
             model.Id == Id &&

@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.View.Controls;
 
 public class CardGetter(ApplicationContext context)
-    : IModelGetterAsync<ViewModel.Documentational.Card>
+    : IModelGetter<ViewModel.Documentational.Card>
 {
     private ApplicationContext _context = context;
 
@@ -11,7 +11,7 @@ public class CardGetter(ApplicationContext context)
 
     public int ModelId { get; set; }
 
-    public async Task<ViewModel.Documentational.Card> GetModel() =>
+    public ViewModel.Documentational.Card Model =>
         _context.Cards.First(
             model =>
             model.Id == Id &&
