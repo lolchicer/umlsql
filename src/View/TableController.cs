@@ -1,9 +1,5 @@
-﻿using Lolchicer.Umlsql.Model.Documentational;
-using Lolchicer.Umlsql.View.Controls;
+﻿using Lolchicer.Umlsql.View.Controls;
 using Lolchicer.Umlsql.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Lolchicer.Umlsql.View
 {
@@ -26,46 +22,53 @@ namespace Lolchicer.Umlsql.View
     }
 
     public class ModelTableController
-        (ApplicationContext context, ModelIdBoxTuple modelIdBoxTuple)
+        (ApplicationContext context, IModelIdTuple idBoxTuple)
         : TableController(context)
     {
-        protected ModelIdBoxTuple _modelIdBoxTuple = modelIdBoxTuple;
+        private readonly IModelIdTuple _iIdBoxTuple = idBoxTuple;
 
-        protected override void AddNewRow() => _context.Models.Add(new ViewModel.Core.Model()
-        {
-            Id = Convert.ToInt32(_modelIdBoxTuple.IdBox.Text)
-        });
+        protected override void AddNewRow() =>
+            _context.Models.Add(new ViewModel.Core.Model()
+            {
+                Id = _iIdBoxTuple.Id
+            });
     }
 
     public class ViewTableController
-        (ApplicationContext context, ViewIdBoxTuple viewIdBoxTuple)
+        (ApplicationContext context, IViewIdTuple idBoxTuple)
         : TableController(context)
     {
-        protected ViewIdBoxTuple _viewIdBoxTuple = viewIdBoxTuple;
+        private readonly IViewIdTuple _idBoxTuple = idBoxTuple;
 
-        protected override void AddNewRow() => _context.Views.Add(new ViewModel.Core.View()
-        {
-            Id = Convert.ToInt32(_viewIdBoxTuple.IdBox.Text),
-            ModelId = Convert.ToInt32(_viewIdBoxTuple.IdBox.Text),
-            TypeId = 1,
-            Model = _context.Models.First(model => model.Id == Convert.ToInt32(_viewIdBoxTuple.IdBox.Text)),
-            Type = _context.Models.First(type => type.Id == 1)
-        });
+        protected override void AddNewRow() =>
+            _idBoxTuple.GetModel(_context.Models)
+            .Views
+            .Add(new ViewModel.Core.View()
+            {
+                Id = _idBoxTuple.Id,
+                ModelId = _idBoxTuple.ModelId,
+                TypeId = 1,
+                Model = _idBoxTuple.GetModel(_context.Models),
+                Type = _context.Models.First(type => type.Id == 1)
+            });
     }
 
     public class CardTableController
-        (ApplicationContext context, CardIdBoxTuple cardIdBoxTuple)
+        (ApplicationContext context, ICardIdTuple idBoxTuple)
         : TableController(context)
     {
-        protected CardIdBoxTuple _cardIdBoxTuple = cardIdBoxTuple;
+        private readonly ICardIdTuple _idBoxTuple = idBoxTuple;
 
-        protected override void AddNewRow() => _context.Cards.Add(new ViewModel.Documentational.Card()
-        {
-            Id = Convert.ToInt32(_cardIdBoxTuple.IdBox.Text),
-            ModelId = Convert.ToInt32(_cardIdBoxTuple.ModelIdBox.Text),
-            Model = _context.Models.First(model => model.Id == Convert.ToInt32(_cardIdBoxTuple.IdBox.Text)),
-            Definition = "твоя ошибка",
-            Name = "123"
-        });
+        protected override void AddNewRow() =>
+            _idBoxTuple.GetModel(_context.Models)
+            .Cards
+            .Add(new ViewModel.Documentational.Card()
+            {
+                Id = _idBoxTuple.Id,
+                ModelId = _idBoxTuple.ModelId,
+                Model = _idBoxTuple.GetModel(_context.Models),
+                Definition = "твоя ошибка",
+                Name = "123"
+            });
     }
 }
