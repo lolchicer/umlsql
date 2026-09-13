@@ -1,9 +1,9 @@
 ﻿namespace Lolchicer.Umlsql.View.Controls;
 
 public interface ICardIdTuple
-    : IIdTuple<ViewModel.Documentational.Card>
+    : IIdTuple<ViewModel.Documentational.Card>, IModelIdTuple
 {
-    public int Id { get; }
+    public new int Id { get; }
     public int ModelId { get; }
 
     public new ViewModel.Documentational.Card GetModel(
@@ -16,6 +16,8 @@ public interface ICardIdTuple
     ViewModel.Documentational.Card IIdTuple<ViewModel.Documentational.Card>.GetModel(
         IEnumerable<ViewModel.Documentational.Card> models) =>
         GetModel(models);
+
+    int IModelIdTuple.Id => Id;
 }
 
 public readonly struct CardIdTuple
