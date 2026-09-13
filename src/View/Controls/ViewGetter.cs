@@ -2,18 +2,8 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-public class ViewGetter(ApplicationContext context)
+public class ViewGetter(ApplicationContext context, IIdTuple<ViewModel.Core.View> tuple)
     : IModelGetter<ViewModel.Core.View>
 {
-    private ApplicationContext _context = context;
-
-    public int Id { get; set; }
-
-    public int ModelId { get; set; }
-
-    public ViewModel.Core.View Model =>
-        _context.Views.First(
-            model =>
-            model.Id == Id &&
-            model.ModelId == ModelId);
+    public ViewModel.Core.View Model => tuple.GetModel(context.Views);
 }

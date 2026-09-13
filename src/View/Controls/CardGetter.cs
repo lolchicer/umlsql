@@ -2,18 +2,8 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-public class CardGetter(ApplicationContext context)
+public class CardGetter(ApplicationContext context, IIdTuple<ViewModel.Documentational.Card> tuple)
     : IModelGetter<ViewModel.Documentational.Card>
 {
-    private ApplicationContext _context = context;
-
-    public int Id { get; set; }
-
-    public int ModelId { get; set; }
-
-    public ViewModel.Documentational.Card Model =>
-        _context.Cards.First(
-            model =>
-            model.Id == Id &&
-            model.ModelId == ModelId);
+    public ViewModel.Documentational.Card Model => tuple.GetModel(context.Cards);
 }

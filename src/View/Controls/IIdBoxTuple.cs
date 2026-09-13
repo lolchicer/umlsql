@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.View.Controls;
 
 public interface IIdBoxTuple<T>
-    : IModelGetter<T>
+    : IIdTuple<T>
     where T : ViewModel.Core.IModel
 {
     public IEnumerable<TextBox> IdBoxes { get; }
