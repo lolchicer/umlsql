@@ -1,5 +1,4 @@
-﻿using Lolchicer.Umlsql.View.Controls;
-using Lolchicer.Umlsql.ViewModel;
+﻿using Lolchicer.Umlsql.ViewModel;
 
 namespace Lolchicer.Umlsql.View
 {
@@ -22,10 +21,10 @@ namespace Lolchicer.Umlsql.View
     }
 
     public class ModelTableController
-        (ApplicationContext context, IModelIdTuple idBoxTuple)
+        (ApplicationContext context, ViewModel.Core.IModelIdTuple idBoxTuple)
         : TableController(context)
     {
-        private readonly IModelIdTuple _iIdBoxTuple = idBoxTuple;
+        private readonly ViewModel.Core.IModelIdTuple _iIdBoxTuple = idBoxTuple;
 
         protected override void AddNewRow() =>
             _context.Models.Add(new ViewModel.Core.Model()
@@ -35,10 +34,10 @@ namespace Lolchicer.Umlsql.View
     }
 
     public class ViewTableController
-        (ApplicationContext context, IViewIdTuple idBoxTuple)
+        (ApplicationContext context, ViewModel.Core.IViewIdTuple idBoxTuple)
         : TableController(context)
     {
-        private readonly IViewIdTuple _idBoxTuple = idBoxTuple;
+        private readonly ViewModel.Core.IViewIdTuple _idBoxTuple = idBoxTuple;
 
         protected override void AddNewRow() =>
             _idBoxTuple.GetModel(_context.Models)
@@ -54,10 +53,10 @@ namespace Lolchicer.Umlsql.View
     }
 
     public class CardTableController
-        (ApplicationContext context, ICardIdTuple idBoxTuple)
+        (ApplicationContext context, ViewModel.Documentational.ICardIdTuple idBoxTuple)
         : TableController(context)
     {
-        private readonly ICardIdTuple _idBoxTuple = idBoxTuple;
+        private readonly ViewModel.Documentational.ICardIdTuple _idBoxTuple = idBoxTuple;
 
         protected override void AddNewRow() =>
             _idBoxTuple.GetModel(_context.Models)

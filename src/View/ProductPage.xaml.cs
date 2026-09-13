@@ -39,7 +39,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateModelsPage(object sender, RoutedEventArgs e)
         {
             ModelIdBoxTuple idBoxTuple = new();
-            ModelGetter getter = new(ApplicationContext, idBoxTuple);
+            ViewModel.Core.ModelGetter getter = new(ApplicationContext, idBoxTuple);
             ModelPageFabric pageFabric = new(getter);
             ModelTableController tableController = new(
                 ApplicationContext,
@@ -50,7 +50,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateViewsPage(object sender, RoutedEventArgs e)
         {
             ViewIdBoxTuple idBoxTuple = new();
-            ViewGetter getter = new(ApplicationContext, idBoxTuple);
+            ViewModel.Core.ViewGetter getter = new(ApplicationContext, idBoxTuple);
             ViewPageFabric pageFabric = new(getter);
             ViewTableController tableController = new(
                 ApplicationContext,
@@ -61,7 +61,7 @@ namespace Lolchicer.Umlsql.View
         private void NavigateCardsPage(object sender, RoutedEventArgs e)
         {
             CardIdBoxTuple idBoxTuple = new();
-            CardGetter getter = new(ApplicationContext, idBoxTuple);
+            ViewModel.Documentational.CardGetter getter = new(ApplicationContext, idBoxTuple);
             CardPageFabric pageFabric = new(getter);
             CardTableController tableController = new(
                 ApplicationContext,

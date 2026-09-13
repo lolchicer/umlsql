@@ -3,7 +3,7 @@
 namespace Lolchicer.Umlsql.View.Controls;
 
 public class ViewIdBoxTuple
-    : IIdBoxTuple<ViewModel.Core.View>, IViewIdTuple
+    : IIdBoxTuple<ViewModel.Core.View>, ViewModel.Core.IViewIdTuple
 {
     private readonly TextBox _idBox;
     private readonly TextBox _modelIdBox;

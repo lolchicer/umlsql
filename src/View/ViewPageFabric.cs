@@ -1,8 +1,6 @@
-﻿using Lolchicer.Umlsql.View.Controls;
+﻿namespace Lolchicer.Umlsql.View;
 
-namespace Lolchicer.Umlsql.View;
-
-public class ViewPageFabric(IModelGetter<ViewModel.Core.View> getter) : IModelPageFabric
+public class ViewPageFabric(ViewModel.IModelGetter<ViewModel.Core.View> getter) : IModelPageFabric
 {
     public ModelPage ModelPage => new(getter.Model);
 }

@@ -1,19 +1,19 @@
-﻿namespace Lolchicer.Umlsql.View.Controls;
+﻿namespace Lolchicer.Umlsql.ViewModel.Core;
 
 public interface IViewIdTuple
-    : IIdTuple<ViewModel.Core.View>, IModelIdTuple
+    : IIdTuple<View>, IModelIdTuple
 {
     public int Id { get; }
     public int ModelId { get; }
 
-    public new ViewModel.Core.View GetModel(
-        IEnumerable<ViewModel.Core.View> views) =>
+    public new View GetModel(
+        IEnumerable<View> views) =>
         views.First(
             model =>
             model.Id == Id &&
             model.ModelId == ModelId);
 
-    ViewModel.Core.View IIdTuple<ViewModel.Core.View>.GetModel(IEnumerable<ViewModel.Core.View> views) => GetModel(views);
+    View IIdTuple<View>.GetModel(IEnumerable<View> views) => GetModel(views);
 
     int IModelIdTuple.Id => Id;
 }
