@@ -31,7 +31,7 @@ public partial class Argument
         }
     }
 
-    public IEnumerable<Method> Methods { get; } = [];
+    public IList<Method> Methods { get; } = [];
 
     IFunction IArgument.Function => Function;
     IFunction IArgument.Type => Type;

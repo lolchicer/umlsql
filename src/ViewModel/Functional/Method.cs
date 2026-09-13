@@ -19,8 +19,8 @@ public partial class Method
         }
     }
 
-    public IEnumerable<Getproperty> Getproperties { get; } = [];
-    public IEnumerable<Setproperty> Setproperties { get; } = [];
+    public IList<Getproperty> Getproperties { get; } = [];
+    public IList<Setproperty> Setproperties { get; } = [];
 
     IArgument IMethod.Argument => Argument;
 }

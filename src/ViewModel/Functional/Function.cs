@@ -7,7 +7,7 @@ public partial class Function
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public IEnumerable<Argument> Arguments { get; } = [];
-    public IEnumerable<Argument> ArgumentTypes { get; } = [];
-    public IEnumerable<Interface> Interfaces { get; } = [];
+    public IList<Argument> Arguments { get; } = [];
+    public IList<Argument> ArgumentTypes { get; } = [];
+    public IList<Interface> Interfaces { get; } = [];
 }

@@ -12,7 +12,7 @@ public partial class Model
         throw new NotImplementedException();
     }
 
-    public IEnumerable<View> Views { get; } = [];
-    public IEnumerable<View> ViewTypes { get; } = [];
-    public IEnumerable<Documentational.Card> Cards { get; } = [];
+    public IList<View> Views { get; } = [];
+    public IList<View> ViewTypes { get; } = [];
+    public IList<Documentational.Card> Cards { get; } = [];
 }
