@@ -13,6 +13,7 @@ public interface IDocument :
     public Core.IModel NameType { get; }
     public Core.IModel LinksType { get; }
     public Core.IModel DateType { get; }
+    public Core.IModel DocumentType { get; }
 
 
     Core.IModel
@@ -39,4 +40,14 @@ public interface IDocument :
         Descriptional.IDateParagraph.Model => Model;
     Core.IModel
         Descriptional.IDateParagraph.Type => DateType;
+
+    Core.IModel
+        Descriptional.IParagraph.Model => Model;
+    Core.IModel
+        Descriptional.IParagraph.Type => DocumentType;
+
+    Core.IModel
+        Core.IView.Model => Model;
+    Core.IModel
+        Core.IView.Type => DocumentType;
 }
