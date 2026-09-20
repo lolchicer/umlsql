@@ -14,6 +14,7 @@ public interface IDocument :
     public new Core.IModel NameType { get; }
     public new Core.IModel LinksType { get; }
     public new Core.IModel DateType { get; }
+    public new Core.IModel DocumentType { get; }
 
     Core.IModel
         Descriptional.IAdditionalTermsParagraph.Model => Model;
@@ -40,6 +41,16 @@ public interface IDocument :
     Core.IModel
         Descriptional.IDateParagraph.Type => DateType;
 
+    Core.IModel
+        Descriptional.IParagraph.Model => Model;
+    Core.IModel
+        Descriptional.IParagraph.Type => DocumentType;
+
+    Core.IModel
+        Core.IView.Model => Model;
+    Core.IModel
+        Core.IView.Type => DocumentType;
+
     Model.Core.IModel
         Model.Documentational.IDocument.Model => Model;
     Model.Core.IModel
@@ -52,4 +63,41 @@ public interface IDocument :
         Model.Documentational.IDocument.LinksType => LinksType;
     Model.Core.IModel
         Model.Documentational.IDocument.DateType => DateType;
+    Model.Core.IModel
+        Model.Documentational.IDocument.DocumentType => DocumentType;
+
+    Model.Core.IModel
+        Model.Descriptional.IAdditionalTermsParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.IAdditionalTermsParagraph.Type => AdditionalTermsType;
+
+    Model.Core.IModel
+        Model.Descriptional.IViewsParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.IViewsParagraph.Type => ViewsType;
+
+    Model.Core.IModel
+        Model.Descriptional.INameParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.INameParagraph.Type => NameType;
+
+    Model.Core.IModel
+        Model.Descriptional.ILinksParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.ILinksParagraph.Type => LinksType;
+
+    Model.Core.IModel
+        Model.Descriptional.IDateParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.IDateParagraph.Type => DateType;
+
+    Model.Core.IModel
+        Model.Descriptional.IParagraph.Model => Model;
+    Model.Core.IModel
+        Model.Descriptional.IParagraph.Type => DocumentType;
+
+    Model.Core.IModel
+        Model.Core.IView.Model => Model;
+    Model.Core.IModel
+        Model.Core.IView.Type => DocumentType;
 }

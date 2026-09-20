@@ -1,6 +1,6 @@
-﻿namespace Lolchicer.Umlsql.ViewModel.Descriptional;
+﻿namespace Lolchicer.Umlsql.ViewModel.Iterational;
 
-public interface IParagraph : Core.IView, Model.Descriptional.IParagraph
+public interface IRedaction : Core.IView, Model.Iterational.IRedaction
 {
     public new Core.IModel Model { get; }
     public new Core.IModel Type { get; }
@@ -16,7 +16,7 @@ public interface IParagraph : Core.IView, Model.Descriptional.IParagraph
         Model.Core.IView.Type => Type;
 
     Model.Core.IModel
-        Model.Descriptional.IParagraph.Model => Model;
+        Model.Iterational.IRedaction.Model => Model;
     Model.Core.IModel
-        Model.Descriptional.IParagraph.Type => Type;
+        Model.Iterational.IRedaction.Type => Type;
 }
