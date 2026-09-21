@@ -2,9 +2,6 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-<<<<<<<< HEAD:src/View/Controls/ViewIdBoxTuple.cs
-public class ViewIdBoxTuple
-    : IIdBoxTuple<ViewModel.Core.View>, ViewModel.Core.IViewIdTuple
 ========
 public class RedactionIdBoxTuple
     : IIdBoxTuple<ViewModel.Iterational.Redaction>, ViewModel.Iterational.IRedactionIdTuple
@@ -22,8 +19,6 @@ public class RedactionIdBoxTuple
     public int Id => Convert.ToInt32(IdBox.Text);
     public int ModelId => Convert.ToInt32(ModelIdBox.Text);
 
-<<<<<<<< HEAD:src/View/Controls/ViewIdBoxTuple.cs
-    public ViewIdBoxTuple()
 ========
     public RedactionIdBoxTuple()
 >>>>>>>> изменил idboxtuple:src/View/Controls/RedactionIdBoxTuple.cs
