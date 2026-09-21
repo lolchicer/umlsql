@@ -67,4 +67,39 @@ public partial class Document
         get;
         set;
     }
+
+    [Column("additionalterms_content")]
+    public required string AdditionalTermsContent
+    {
+        get;
+        set;
+    }
+
+    [Column("views_content")]
+    public required string ViewsContent
+    {
+        get;
+        set;
+    }
+
+    [Column("name_content")]
+    public required string NameContent
+    {
+        get;
+        set;
+    }
+
+    [Column("links_content")]
+    public required string LinksContent
+    {
+        get;
+        set;
+    }
+
+    [Column("date_content")]
+    public required DateTime DateContent
+    {
+        get;
+        set;
+    }
 }
