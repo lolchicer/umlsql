@@ -40,7 +40,7 @@ namespace Lolchicer.Umlsql.View
         {
             ModelIdBoxTuple idBoxTuple = new();
             ViewModel.Core.ModelGetter getter = new(ApplicationContext, idBoxTuple);
-            ModelPageFabric pageFabric = new(getter);
+            ModelPageFabric<ViewModel.Core.Model> pageFabric = new(getter);
             ModelTableController tableController = new(
                 ApplicationContext,
                 idBoxTuple);
@@ -51,7 +51,7 @@ namespace Lolchicer.Umlsql.View
         {
             ViewIdBoxTuple idBoxTuple = new();
             ViewModel.Core.ViewGetter getter = new(ApplicationContext, idBoxTuple);
-            ViewPageFabric pageFabric = new(getter);
+            ModelPageFabric<ViewModel.Core.View> pageFabric = new(getter);
             ViewTableController tableController = new(
                 ApplicationContext,
                 idBoxTuple);
