@@ -3,7 +3,7 @@
 public interface IViewIdTuple
     : IIdTuple<View>, IModelIdTuple
 {
-    public int Id { get; }
+    public new int Id { get; }
     public int ModelId { get; }
 
     public new View GetModel(
