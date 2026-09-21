@@ -27,7 +27,9 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
 
     public DbSet<Core.View> Views { get; set; } = null!;
 
-    public DbSet<Documentational.Card> Cards { get; set; } = null!;
+    public DbSet<Iterational.Redaction> Redactions { get; set; } = null!;
+
+    public DbSet<Documentational.Document> Documents { get; set; } = null!;
 
     public DbSet<Functional.Function> Functions { get; set; } = null!;
 
@@ -66,16 +68,70 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
             .HasPrincipalKey(type => type.Id);
     }
 
-    private void CreateCard(ModelBuilder modelBuilder)
+    private void CreateRedaction(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Documentational.Card>()
-            .HasKey(card => new { card.Id, card.ModelId });
+        modelBuilder.Entity<Iterational.Redaction>()
+            .HasKey(redaction => new { redaction.Id, redaction.ModelId });
 
-        modelBuilder.Entity<Documentational.Card>()
-            .HasOne(card => card.Model)
-            .WithMany(model => model.Cards)
-            .HasForeignKey(card => card.ModelId)
+        modelBuilder.Entity<Iterational.Redaction>()
+            .HasOne(redaction => redaction.Model)
+            .WithMany(model => model.Redactions)
+            .HasForeignKey(redaction => redaction.ModelId)
             .HasPrincipalKey(model => model.Id);
+
+        modelBuilder.Entity<Iterational.Redaction>()
+            .HasOne(redaction => redaction.Type)
+            .WithMany(type => type.RedactionTypes)
+            .HasForeignKey(redaction => redaction.TypeId)
+            .HasPrincipalKey(type => type.Id);
+    }
+
+    private void CreateDocument(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Documentational.Document>()
+            .HasKey(document => new { document.Id, document.ModelId });
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.Model)
+            .WithMany(model => model.Documents)
+            .HasForeignKey(document => document.ModelId)
+            .HasPrincipalKey(model => model.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.DocumentType)
+            .WithMany(type => type.DocumentTypes)
+            .HasForeignKey(document => document.DocumentTypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.AdditionalTermsType)
+            .WithMany(type => type.AdditionalTermsTypes)
+            .HasForeignKey(document => document.AdditionalTermsTypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.ViewsType)
+            .WithMany(type => type.ViewsTypes)
+            .HasForeignKey(document => document.ViewsTypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.NameType)
+            .WithMany(type => type.NameTypes)
+            .HasForeignKey(document => document.NameTypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.LinksType)
+            .WithMany(type => type.LinksTypes)
+            .HasForeignKey(document => document.LinksTypeId)
+            .HasPrincipalKey(type => type.Id);
+
+        modelBuilder.Entity<Documentational.Document>()
+            .HasOne(document => document.DateType)
+            .WithMany(type => type.DateTypes)
+            .HasForeignKey(document => document.DateTypeId)
+            .HasPrincipalKey(type => type.Id);
     }
 
     private void CreateFunction(ModelBuilder modelBuilder)
