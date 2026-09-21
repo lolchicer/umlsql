@@ -2,8 +2,8 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-public class CardIdBoxTuple
-    : ViewModel.IIdBoxTuple<ViewModel.Documentational.Card>, ICardIdTuple
+public class RedactionIdBoxTuple
+    : IIdBoxTuple<ViewModel.Iterational.Redaction>, ViewModel.Iterational.IRedactionIdTuple
 {
     private readonly TextBox _idBox;
     private readonly TextBox _modelIdBox;
@@ -17,7 +17,7 @@ public class CardIdBoxTuple
     public int Id => Convert.ToInt32(IdBox.Text);
     public int ModelId => Convert.ToInt32(ModelIdBox.Text);
 
-    public CardIdBoxTuple()
+    public RedactionIdBoxTuple()
     {
         _idBox = new();
         _modelIdBox = new();
