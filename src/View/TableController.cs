@@ -34,10 +34,10 @@ namespace Lolchicer.Umlsql.View
     }
 
     public class ViewTableController
-        (ApplicationContext context, ViewModel.Core.IViewIdTuple idBoxTuple)
+        (ApplicationContext context, ViewModel.Core.INewViewIdTuple idBoxTuple)
         : TableController(context)
     {
-        private readonly ViewModel.Core.IViewIdTuple _idBoxTuple = idBoxTuple;
+        private readonly ViewModel.Core.INewViewIdTuple _idBoxTuple = idBoxTuple;
 
         protected override void AddNewRow() =>
             _idBoxTuple.GetModel(_context.Models)
@@ -46,28 +46,54 @@ namespace Lolchicer.Umlsql.View
             {
                 Id = _idBoxTuple.Id,
                 ModelId = _idBoxTuple.ModelId,
-                TypeId = 1,
-                Model = _idBoxTuple.GetModel(_context.Models),
-                Type = _context.Models.First(type => type.Id == 1)
+                TypeId = _idBoxTuple.TypeId,
+                Model = _idBoxTuple.GetModel(_context.Models)
             });
     }
 
-    public class CardTableController
-        (ApplicationContext context, ViewModel.Documentational.ICardIdTuple idBoxTuple)
+    public class RedactionTableController
+        (ApplicationContext context, ViewModel.Iterational.INewRedactionIdTuple idBoxTuple)
         : TableController(context)
     {
-        private readonly ViewModel.Documentational.ICardIdTuple _idBoxTuple = idBoxTuple;
+        private readonly ViewModel.Iterational.INewRedactionIdTuple _idBoxTuple = idBoxTuple;
 
         protected override void AddNewRow() =>
             _idBoxTuple.GetModel(_context.Models)
-            .Cards
-            .Add(new ViewModel.Documentational.Card()
+            .Redactions
+            .Add(new ViewModel.Iterational.Redaction()
+            {
+                Id = _idBoxTuple.Id,
+                ModelId = _idBoxTuple.ModelId,
+                TypeId = _idBoxTuple.TypeId,
+                Model = _idBoxTuple.GetModel(_context.Models),
+            });
+    }
+
+    public class DocumentTableController
+        (ApplicationContext context, ViewModel.Documentational.INewDocumentIdTuple idBoxTuple)
+        : TableController(context)
+    {
+        private readonly ViewModel.Documentational.INewDocumentIdTuple _idBoxTuple = idBoxTuple;
+
+        protected override void AddNewRow() =>
+            _idBoxTuple.GetModel(_context.Models)
+            .Documents
+            .Add(new ViewModel.Documentational.Document()
             {
                 Id = _idBoxTuple.Id,
                 ModelId = _idBoxTuple.ModelId,
                 Model = _idBoxTuple.GetModel(_context.Models),
-                Definition = "твоя ошибка",
-                Name = "123"
+                DocumentTypeId = _idBoxTuple.DocumentTypeId,
+                AdditionalTermsTypeId = _idBoxTuple.AdditionalTermsTypeId,
+                DateTypeId = _idBoxTuple.DateTypeId,
+                LinksTypeId = _idBoxTuple.LinksTypeId,
+                NameTypeId = _idBoxTuple.NameTypeId,
+                ViewsTypeId = _idBoxTuple.ViewsTypeId,
+                AdditionalTermsContent = "безрассудство",
+                DateContent = DateTime.Now,
+                ViewsContent = "как",
+                LinksContent = "всегда",
+                NameContent = "вознаграждается"
             });
     }
 }
