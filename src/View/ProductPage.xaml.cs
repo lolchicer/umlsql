@@ -22,8 +22,6 @@ namespace Lolchicer.Umlsql.View
     /// </summary>
     public partial class ProductPage : Page
     {
-        private ApplicationNamesSetter _namesSetter = new(new ApplicationNameFabric());
-
         public ApplicationContext ApplicationContext
         {
             get => (ApplicationContext)FindResource("ApplicationContext");
