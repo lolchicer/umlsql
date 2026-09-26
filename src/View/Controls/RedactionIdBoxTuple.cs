@@ -2,10 +2,8 @@
 
 namespace Lolchicer.Umlsql.View.Controls;
 
-========
 public class RedactionIdBoxTuple
     : IIdBoxTuple<ViewModel.Iterational.Redaction>, ViewModel.Iterational.IRedactionIdTuple
->>>>>>>> изменил idboxtuple:src/View/Controls/RedactionIdBoxTuple.cs
 {
     private readonly TextBox _idBox;
     private readonly TextBox _modelIdBox;
@@ -18,10 +16,7 @@ public class RedactionIdBoxTuple
 
     public int Id => Convert.ToInt32(IdBox.Text);
     public int ModelId => Convert.ToInt32(ModelIdBox.Text);
-
-========
     public RedactionIdBoxTuple()
->>>>>>>> изменил idboxtuple:src/View/Controls/RedactionIdBoxTuple.cs
     {
         _idBox = new();
         _modelIdBox = new();
