@@ -8,12 +8,12 @@ public partial class Document
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public required Core.Model Model { get; set; }
-    public required Core.Model AdditionalTermsType { get; set; }
-    public required Core.Model ViewsType { get; set; }
-    public required Core.Model NameType { get; set; }
-    public required Core.Model LinksType { get; set; }
-    public required Core.Model DateType { get; set; }
-    public required Core.Model DocumentType { get; set; }
+    public Core.Model AdditionalTermsType { get; set; }
+    public Core.Model ViewsType { get; set; }
+    public Core.Model NameType { get; set; }
+    public Core.Model LinksType { get; set; }
+    public Core.Model DateType { get; set; }
+    public Core.Model DocumentType { get; set; }
 
     Core.IModel IDocument.Model => Model;
     Core.IModel IDocument.AdditionalTermsType => AdditionalTermsType;

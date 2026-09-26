@@ -8,7 +8,7 @@ public partial class Redaction
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public required Core.Model Model { get; set; }
-    public required Core.Model Type { get; set; }
+    public Core.Model Type { get; set; }
 
     Core.IModel IRedaction.Model => Model;
     Core.IModel IRedaction.Type => Model;

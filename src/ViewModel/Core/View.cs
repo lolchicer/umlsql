@@ -21,7 +21,7 @@ public partial class View
         }
     }
 
-    public required Model Type
+    public Model Type
     {
         get => _type;
         set
