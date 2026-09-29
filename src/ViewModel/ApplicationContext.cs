@@ -215,7 +215,8 @@ public class ApplicationContext : DbContext, INotifyPropertyChanged
     {
         CreateModel(modelBuilder);
         CreateView(modelBuilder);
-        CreateCard(modelBuilder);
+        CreateRedaction(modelBuilder);
+        CreateDocument(modelBuilder);
         CreateFunction(modelBuilder);
         CreateArgument(modelBuilder);
         CreateInterface(modelBuilder);
