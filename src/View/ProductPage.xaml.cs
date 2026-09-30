@@ -56,12 +56,23 @@ namespace Lolchicer.Umlsql.View
             NavigationService.Navigate(new ModelsPage(pageFabric, tableController, idBoxTuple.IdBoxes));
         }
 
-        private void NavigateCardsPage(object sender, RoutedEventArgs e)
+        private void NavigateRedactionsPage(object sender, RoutedEventArgs e)
         {
-            CardIdBoxTuple idBoxTuple = new();
-            ViewModel.Documentational.CardGetter getter = new(ApplicationContext, idBoxTuple);
-            CardPageFabric pageFabric = new(getter);
-            CardTableController tableController = new(
+            RedactionIdBoxTuple idBoxTuple = new();
+            ViewModel.Iterational.RedactionGetter getter = new(ApplicationContext, idBoxTuple);
+            ModelPageFabric<ViewModel.Iterational.Redaction> pageFabric = new(getter);
+            RedactionTableController tableController = new(
+                ApplicationContext,
+                idBoxTuple);
+            NavigationService.Navigate(new ModelsPage(pageFabric, tableController, idBoxTuple.IdBoxes));
+        }
+
+        private void NavigateDocumentsPage(object sender, RoutedEventArgs e)
+        {
+            DocumentIdBoxTuple idBoxTuple = new();
+            ViewModel.Documentational.DocumentGetter getter = new(ApplicationContext, idBoxTuple);
+            ModelPageFabric<ViewModel.Documentational.Document> pageFabric = new(getter);
+            DocumentTableController tableController = new(
                 ApplicationContext,
                 idBoxTuple);
             NavigationService.Navigate(new ModelsPage(pageFabric, tableController, idBoxTuple.IdBoxes));

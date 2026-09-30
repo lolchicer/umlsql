@@ -10,6 +10,9 @@
     <StackPanel>
         <Label FontSize="32">Product</Label>
         <Border BorderBrush="Gray" BorderThickness="2" />
-        <Button Content="Cards" Click="NavigateCardsPage" />
+        <Button Content="Models" Click="NavigateModelsPage" />
+        <Button Content="Views" Click="NavigateViewsPage" />
+        <Button Content="Redactions" Click="NavigateRedactionsPage" />
+        <Button Content="Documents" Click="NavigateDocumentsPage" />
     </StackPanel>
 </Page>
