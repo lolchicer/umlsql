@@ -55,10 +55,10 @@ public class DocumentIdBoxTuple
             _dateTypeIdBox,
             _documentTypeIdBox];
     }
-    int INewDocumentIdTuple.AdditionalTermsTypeId => AdditionalTermsTypeId;
-    int INewDocumentIdTuple.ViewsTypeId => ViewsTypeId;
-    int INewDocumentIdTuple.NameTypeId => NameTypeId;
-    int INewDocumentIdTuple.LinksTypeId => LinksTypeId;
-    int INewDocumentIdTuple.DateTypeId => DateTypeId;
-    int INewDocumentIdTuple.DocumentTypeId => DocumentTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.AdditionalTermsTypeId => AdditionalTermsTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.ViewsTypeId => ViewsTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.NameTypeId => NameTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.LinksTypeId => LinksTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.DateTypeId => DateTypeId;
+    int ViewModel.Documentational.INewDocumentIdTuple.DocumentTypeId => DocumentTypeId;
 }
